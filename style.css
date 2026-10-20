@@ -1,0 +1,4193 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.opening {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background: #fffafa;
+}
+
+/* =========================
+   KOTAK TENGAH
+========================= */
+
+.opening-card {
+    width: 350px;
+    min-height: 470px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 5;
+}
+
+/* =========================
+   SURAT
+========================= */
+
+/* =========================
+   AMPOP PINK
+========================= */
+
+.letter {
+    width: 200px;
+    height: 140px;
+    position: relative;
+
+    background: #fff;
+    border-radius: 6px;
+
+    box-shadow:
+        0 15px 35px rgba(214, 105, 145, 0.18);
+
+    overflow: hidden;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Lipatan bawah kiri & kanan */
+
+.letter::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 100px solid #fffafa;
+    border-top: 70px solid transparent;
+
+    z-index: 2;
+}
+
+.letter::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    border-right: 100px solid #fffafa;
+    border-top: 70px solid transparent;
+
+    z-index: 2;
+}
+
+/* Lipatan segitiga bagian atas */
+
+.letter-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 75px solid #f7b1ca;
+
+    z-index: 4;
+}
+
+/* Love di tengah */
+
+.letter-heart {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -20%);
+
+    z-index: 6;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    color: hsl(338, 100%, 85%);
+
+    font-size: 27px;
+
+    box-shadow:
+        0 5px 15px rgba(214, 105, 145, 0.15);
+}
+
+/* Animasi kecil */
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(2deg);
+    }
+
+}
+
+/* =========================
+   FROM & FOR
+========================= */
+
+.letter-info {
+    margin-top: 25px;
+
+    color: #b98a9b;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    letter-spacing: 0.5px;
+}
+
+.letter-info p {
+    margin: 2px 0;
+}
+
+.letter-info span {
+    color: #d96d96;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    margin-top: 25px;
+
+    border: none;
+
+    background: #f39abb;
+
+    color: white;
+
+    padding: 10px 25px;
+
+    border-radius: 30px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(214, 105, 145, 0.18);
+
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #e982a8;
+
+    transform: translateY(-2px);
+}
+
+/* =========================
+   LOVE-LOVE KECIL
+========================= */
+
+.tiny-heart {
+    position: absolute;
+
+    color: #ff82ac;
+
+    font-size: 15px;
+
+    opacity: 0.65;
+
+    z-index: 1;
+
+    animation: heartFloat 4s ease-in-out infinite;
+}
+
+.heart-1 {
+    top: 15%;
+    left: 18%;
+}
+
+.heart-2 {
+    top: 25%;
+    right: 18%;
+    font-size: 11px;
+    animation-delay: 1s;
+}
+
+.heart-3 {
+    top: 12%;
+    right: 35%;
+    font-size: 9px;
+    animation-delay: 2s;
+}
+
+.heart-4 {
+    bottom: 18%;
+    left: 20%;
+    font-size: 12px;
+    animation-delay: 1.5s;
+}
+
+.heart-5 {
+    bottom: 25%;
+    right: 20%;
+    font-size: 17px;
+    animation-delay: 2.5s;
+}
+
+.heart-6 {
+    top: 40%;
+    left: 10%;
+    font-size: 10px;
+    animation-delay: 1s;
+}
+
+.heart-7 {
+    top: 55%;
+    right: 10%;
+    font-size: 13px;
+    animation-delay: 3s;
+}
+
+.heart-8 {
+    bottom: 12%;
+    right: 35%;
+    font-size: 9px;
+    animation-delay: 2s;
+}
+
+.heart-9 {
+    bottom: 35%;
+    left: 30%;
+    font-size: 8px;
+    animation-delay: 1.5s;
+}
+
+.heart-10 {
+    top: 35%;
+    right: 30%;
+    font-size: 8px;
+    animation-delay: 3s;
+}
+
+@keyframes heartFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+/* =========================
+   HP
+========================= */
+
+@media (max-width: 600px) {
+
+    .opening-card {
+        width: 100%;
+    }
+
+    .letter {
+        width: 175px;
+        height: 125px;
+    }
+
+}
+.fade-out {
+    animation: fadeOut 0.8s ease forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.03);
+    }
+}
+/* =========================
+   ABOUT ME
+========================= */
+
+.about-page {
+    min-height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 10% 20%, #fff0f6 0%, transparent 25%),
+        radial-gradient(circle at 90% 80%, #ffe4ef 0%, transparent 30%),
+        #fffafa;
+}
+
+.about-content {
+    width: 90%;
+    max-width: 500px;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 3;
+
+    animation: aboutAppear 1s ease;
+}
+
+@keyframes aboutAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.about-small {
+    color: #d889a5;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+.about-content h1 {
+    font-family: "Pacifico", cursive;
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+    color: #92546f;
+
+    margin-bottom: 25px;
+}
+
+.about-content h1 span {
+    color: #e87da5;
+}
+
+/* =========================
+   FOTO
+========================= */
+
+/* =========================
+   3 FOTO SCRAPBOOK
+========================= */
+
+.photo-gallery {
+    width: 350px;
+    height: 270px;
+
+    margin: 0 auto 10px;
+
+    position: relative;
+}
+
+/* semua foto */
+
+.photo-frame {
+    position: absolute;
+
+    width: 145px;
+    height: 175px;
+
+    padding: 8px 8px 25px;
+
+    background: white;
+
+    box-shadow:
+        0 10px 25px rgba(205, 108, 145, 0.18);
+
+    transition: 0.3s ease;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* foto kiri */
+
+.photo-left {
+    left: 5px;
+    top: 45px;
+
+    transform: rotate(-9deg);
+
+    z-index: 1;
+}
+
+/* foto tengah */
+
+.photo-center {
+    left: 102px;
+    top: 10px;
+
+    transform: rotate(1deg);
+
+    z-index: 3;
+}
+
+/* foto kanan */
+
+.photo-right {
+    right: 5px;
+    top: 45px;
+
+    transform: rotate(8deg);
+
+    z-index: 2;
+}
+
+/* efek hover */
+
+.photo-frame:hover {
+    transform:
+        translateY(-8px)
+        rotate(0deg)
+        scale(1.03);
+
+    z-index: 10;
+}
+
+/* pita */
+
+.photo-tape {
+    position: absolute;
+
+    width: 50px;
+    height: 14px;
+
+    background: #f7b4cb;
+
+    opacity: 0.75;
+
+    top: -7px;
+    left: 47px;
+
+    transform: rotate(-3deg);
+}
+
+/* =========================
+   NAMA
+========================= */
+
+.about-content h2 {
+    font-family: "Pacifico", cursive;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    color: #d96f98;
+
+    margin-bottom: 10px;
+}
+
+.about-text {
+    color: #9e7181;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 22px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.next-button {
+    border: none;
+
+    background: #f39abb;
+
+    color: white;
+
+    padding: 11px 25px;
+
+    border-radius: 30px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 8px 18px rgba(214, 105, 145, 0.15);
+}
+
+.next-button:hover {
+    background: #e982a8;
+
+    transform: translateY(-2px);
+}
+
+/* =========================
+   LOVE
+========================= */
+
+.about-heart {
+    position: absolute;
+
+    color: #f2a0bb;
+
+    opacity: 0.6;
+
+    z-index: 1;
+
+    animation: aboutHeartFloat 4s ease-in-out infinite;
+}
+
+.h1 {
+    top: 15%;
+    left: 15%;
+    font-size: 18px;
+}
+
+.h2 {
+    top: 25%;
+    right: 15%;
+    font-size: 12px;
+    animation-delay: 1s;
+}
+
+.h3 {
+    bottom: 20%;
+    left: 18%;
+    font-size: 13px;
+    animation-delay: 2s;
+}
+
+.h4 {
+    bottom: 15%;
+    right: 18%;
+    font-size: 20px;
+    animation-delay: 1.5s;
+}
+
+.h5 {
+    top: 50%;
+    right: 8%;
+    font-size: 10px;
+    animation-delay: 3s;
+}
+
+@keyframes aboutHeartFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+.about-content h2 {
+    font-family: "Pacifico", cursive;
+    font-size: 25px;
+    font-weight: 400;
+    color: #d96f98;
+
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+.about-text {
+    color: #9e7181;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+.next-button {
+    border: none;
+
+    background: #f39abb;
+    color: white;
+
+    padding: 11px 25px;
+
+    border-radius: 30px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 8px 18px rgba(214, 105, 145, 0.15);
+}
+
+.next-button:hover {
+    background: #e982a8;
+    transform: translateY(-2px);
+}
+/* =========================
+   THANK YOU PAGE
+========================= */
+
+.thankyou-page {
+    min-height: 100vh;
+
+    padding: 70px 20px;
+
+    position: relative;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #fff0f6 0%,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            #ffe5ef 0%,
+            transparent 30%
+        ),
+        #fffafa;
+}
+
+
+.thankyou-content {
+
+    width: 90%;
+    max-width: 600px;
+
+    margin: auto;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 3;
+
+    animation: thankAppear 1s ease;
+
+}
+
+
+@keyframes thankAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   JUDUL
+========================= */
+
+.thank-small {
+
+    color: #d889a5;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+
+}
+
+
+.thankyou-content h1 {
+
+    font-family: "Pacifico", cursive;
+
+    font-size: 42px;
+
+    line-height: 1.3;
+
+    font-weight: 400;
+
+    color: #92546f;
+
+    margin-bottom: 35px;
+
+}
+
+
+.thankyou-content h1 span {
+
+    color: #e87da5;
+
+}
+
+
+/* =========================
+   KARTU
+========================= */
+
+
+
+/* =========================
+   THANK YOU CARDS
+========================= */
+
+/* =========================
+   THANK YOU CARDS
+========================= */
+
+
+/* =========================
+   THANK YOU CARDS
+========================= */
+
+.thank-cards {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+/* KOTAK */
+
+.thank-card {
+    min-height: 210px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid #ffe1eb;
+    border-radius: 22px;
+
+    padding: 25px 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 10px 30px rgba(214, 105, 145, 0.10);
+
+    transition: 0.35s ease;
+}
+
+
+/* Hover */
+
+.thank-card:hover {
+    transform: translateY(-7px) rotate(-1deg);
+
+    box-shadow:
+        0 15px 35px rgba(214, 105, 145, 0.17);
+}
+
+
+/* HEART */
+
+.card-heart {
+    color: #e87da5;
+
+    font-size: 26px;
+
+    margin-bottom: 10px;
+
+    transition: 0.3s ease;
+}
+
+
+.thank-card:hover .card-heart {
+    transform: scale(1.2);
+}
+
+
+/* JUDUL */
+
+.thank-card h2 {
+    color: #a65e7c;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    font-weight: 600;
+
+    margin-bottom: 17px;
+
+    text-align: center;
+}
+
+
+/* READ MORE */
+
+.read-button {
+    border: none;
+
+    background: #fff0f6;
+
+    color: #d66f96;
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.read-button:hover {
+    background: #f39abb;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* DETAIL */
+
+.card-detail {
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        max-height 0.5s ease,
+        opacity 0.3s ease,
+        margin-top 0.3s ease;
+}
+
+
+.card-detail p {
+    color: #9e7181;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* SAAT DIBUKA */
+
+.thank-card.active {
+    justify-content: flex-start;
+}
+
+
+.thank-card.active .card-detail {
+    max-height: 180px;
+
+    opacity: 1;
+
+    margin-top: 15px;
+}
+
+
+/* NEXT BUTTON */
+
+.thankyou-content .next-button {
+    margin-top: 35px;
+}
+
+/* =========================
+   LOVE DEKORASI
+========================= */
+
+.thank-heart {
+
+    position: absolute;
+
+    color: #f2a0bb;
+
+    opacity: 0.6;
+
+    z-index: 1;
+
+    animation: thankHeartFloat 4s ease-in-out infinite;
+
+}
+
+
+.th1 {
+    top: 10%;
+    left: 10%;
+    font-size: 18px;
+}
+
+
+.th2 {
+    top: 20%;
+    right: 12%;
+    font-size: 12px;
+    animation-delay: 1s;
+}
+
+
+.th3 {
+    top: 55%;
+    left: 7%;
+    font-size: 13px;
+    animation-delay: 2s;
+}
+
+
+.th4 {
+    bottom: 15%;
+    right: 10%;
+    font-size: 20px;
+    animation-delay: 1.5s;
+}
+
+
+.th5 {
+    bottom: 25%;
+    left: 18%;
+    font-size: 10px;
+    animation-delay: 3s;
+}
+
+
+@keyframes thankHeartFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+@media (max-width: 700px) {
+
+    .thank-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .thank-card {
+        width: 85%;
+        min-height: 200px;
+    }
+
+}
+/* =========================
+   LETTER POP UP
+========================= */
+
+.letter-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(255, 220, 232, 0.55);
+
+    backdrop-filter: blur(5px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 100;
+}
+
+
+/* SAAT TERBUKA */
+
+.letter-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* KOTAK BESAR */
+
+.big-letter {
+    position: relative;
+
+    width: 90%;
+    max-width: 550px;
+
+    background: #fffdfd;
+
+    border: 1px solid #ffdce8;
+
+    border-radius: 28px;
+
+    padding: 45px 45px 40px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px rgba(188, 88, 125, 0.20);
+
+    transform: translateY(20px) scale(0.95);
+
+    transition: 0.35s ease;
+}
+
+
+/* ANIMASI BUKA */
+
+.letter-overlay.show .big-letter {
+    transform: translateY(0) scale(1);
+}
+
+
+/* HEART BESAR */
+
+.big-letter-heart {
+    color: #e87da5;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+
+    animation: letterHeart 1.5s ease-in-out infinite;
+}
+
+
+@keyframes letterHeart {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* JUDUL SURAT */
+
+.big-letter h2 {
+    font-family: "Pacifico", cursive;
+
+    color: #a65e7c;
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    line-height: 1.4;
+
+    margin-bottom: 15px;
+}
+
+
+/* GARIS */
+
+.letter-line {
+    width: 45px;
+
+    height: 2px;
+
+    background: #f5b2c9;
+
+    margin: 0 auto 20px;
+
+    border-radius: 10px;
+}
+
+
+/* ISI SURAT */
+
+.big-letter p {
+    color: #987080;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    max-width: 430px;
+
+    margin: 0 auto 25px;
+}
+
+
+/* TOMBOL CLOSE */
+
+.close-button {
+    border: none;
+
+    background: #f39abb;
+
+    color: white;
+
+    padding: 10px 23px;
+
+    border-radius: 25px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.close-button:hover {
+    background: #e982a8;
+
+    transform: translateY(-2px);
+}
+
+
+/* X DI POJOK */
+
+.close-letter {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+
+    background: #fff0f6;
+
+    color: #d66f96;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    line-height: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.close-letter:hover {
+    background: #f8c1d5;
+
+    color: white;
+
+    transform: rotate(90deg);
+}
+@media (max-width: 700px) {
+
+    .thank-cards {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .thank-card {
+        min-height: 190px;
+
+        padding: 20px 12px;
+    }
+
+    .thank-card h2 {
+        font-size: 13px;
+    }
+
+    .big-letter {
+        padding: 40px 25px 30px;
+    }
+
+    .big-letter h2 {
+        font-size: 23px;
+    }
+
+}
+/* =========================
+   MEMORIES PAGE
+========================= */
+
+.memories-page {
+    min-height: 100vh;
+
+    padding: 80px 20px;
+
+    position: relative;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #fff0f6 0%,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #ffe5ef 0%,
+            transparent 30%
+        ),
+        #fffafa;
+}
+
+
+.memories-content {
+    width: 90%;
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 3;
+
+    animation: memoryAppear 1s ease;
+}
+
+
+@keyframes memoryAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* JUDUL KECIL */
+
+.memory-small {
+    color: #d889a5;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+
+/* JUDUL */
+
+.memories-content h1 {
+    font-family: "Pacifico", cursive;
+
+    font-size: 42px;
+
+    line-height: 1.3;
+
+    font-weight: 400;
+
+    color: #92546f;
+
+    margin-bottom: 15px;
+}
+
+
+.memories-content h1 span {
+    color: #e87da5;
+}
+
+
+/* INTRO */
+
+.memory-intro {
+    color: #9e7181;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    max-width: 400px;
+
+    margin: 0 auto 45px;
+}
+
+
+/* =========================
+   FOTO GRID
+========================= */
+
+.memory-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+
+    align-items: start;
+
+    margin-bottom: 40px;
+}
+
+
+/* FOTO */
+
+.memory-photo {
+    background: white;
+
+    padding: 10px 10px 20px;
+
+    box-shadow:
+        0 12px 30px rgba(
+            205,
+            108,
+            145,
+            0.15
+        );
+
+    transition: 0.35s ease;
+}
+
+
+/* UKURAN FOTO */
+
+.memory-photo img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1.1;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* POSISI MIRING */
+
+.photo-one {
+    transform: rotate(-5deg);
+}
+
+.photo-two {
+    transform: rotate(2deg);
+
+    margin-top: 20px;
+}
+
+.photo-three {
+    transform: rotate(5deg);
+}
+
+
+/* HOVER */
+
+.memory-photo:hover {
+    transform:
+        translateY(-10px)
+        rotate(0deg)
+        scale(1.03);
+
+    z-index: 5;
+}
+
+
+/* CAPTION */
+
+.memory-caption {
+    padding-top: 12px;
+}
+
+
+.memory-caption span {
+    color: #e87da5;
+
+    font-size: 15px;
+}
+
+
+.memory-caption p {
+    margin: 5px 0 0;
+
+    color: #a56f82;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   HEARTS
+========================= */
+
+.memory-heart {
+    position: absolute;
+
+    color: #f2a0bb;
+
+    opacity: 0.6;
+
+    z-index: 1;
+
+    animation:
+        memoryHeartFloat
+        4s ease-in-out infinite;
+}
+
+
+.mh1 {
+    top: 12%;
+    left: 8%;
+    font-size: 20px;
+}
+
+
+.mh2 {
+    top: 25%;
+    right: 10%;
+    font-size: 13px;
+    animation-delay: 1s;
+}
+
+
+.mh3 {
+    bottom: 25%;
+    left: 7%;
+    font-size: 14px;
+    animation-delay: 2s;
+}
+
+
+.mh4 {
+    bottom: 12%;
+    right: 8%;
+    font-size: 20px;
+    animation-delay: 1.5s;
+}
+
+
+.mh5 {
+    top: 55%;
+    right: 4%;
+    font-size: 10px;
+    animation-delay: 3s;
+}
+
+
+@keyframes memoryHeartFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+/* =========================
+   SUPPORT / LITTLE REMINDER
+========================= */
+
+.support-page {
+    min-height: 100vh;
+
+    padding: 75px 20px;
+
+    position: relative;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            #fff0f6 0%,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            #ffe5ef 0%,
+            transparent 30%
+        ),
+        #fffafa;
+}
+
+
+.support-content {
+    width: 90%;
+    max-width: 800px;
+
+    margin: auto;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 3;
+
+    animation: supportAppear 1s ease;
+}
+
+
+@keyframes supportAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* JUDUL KECIL */
+
+.support-small {
+    color: #d889a5;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+
+/* JUDUL */
+
+.support-content h1 {
+    font-family: "Pacifico", cursive;
+
+    font-size: 40px;
+
+    line-height: 1.3;
+
+    font-weight: 400;
+
+    color: #92546f;
+
+    margin-bottom: 12px;
+}
+
+
+.support-content h1 span {
+    color: #e87da5;
+}
+
+
+.support-intro {
+    color: #9e7181;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   POCKET AREA
+========================= */
+
+.pocket-area {
+    width: 500px;
+
+    max-width: 100%;
+
+    height: 390px;
+
+    margin: 0 auto 25px;
+
+    position: relative;
+}
+
+
+/* POCKET */
+
+.pocket {
+    position: absolute;
+
+    width: 260px;
+
+    height: 190px;
+
+    left: 50%;
+
+    bottom: 15px;
+
+    transform: translateX(-50%);
+
+    background: #f7b3c9;
+
+    border-radius:
+        15px
+        15px
+        35px
+        35px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(205, 108, 145, 0.18);
+
+    z-index: 2;
+}
+
+
+/* bagian atas pocket */
+
+.pocket-top {
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 65px;
+
+    background: #f39abb;
+
+    border-radius:
+        15px
+        15px
+        50% 50%;
+
+    color: white;
+
+    font-size: 11px;
+
+    padding-top: 15px;
+
+    letter-spacing: 1px;
+}
+
+
+.pocket-heart {
+    position: absolute;
+
+    top: 78px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    font-size: 30px;
+}
+
+
+.pocket p {
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 0;
+
+    width: 100%;
+
+    color: #fff5f8;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   STICKY NOTES
+========================= */
+
+.note {
+    position: absolute;
+
+    width: 145px;
+
+    min-height: 115px;
+
+    padding: 17px 12px;
+
+    border: none;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    color: #8f6372;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(180, 100, 130, 0.14);
+
+    transition: 0.3s ease;
+
+    z-index: 3;
+}
+
+
+.note span {
+    display: block;
+
+    color: #e87da5;
+
+    font-size: 18px;
+
+    margin-bottom: 6px;
+}
+
+
+/* NOTE 1 */
+
+.note-one {
+    left: 15px;
+
+    top: 65px;
+
+    background: #ffe8f0;
+
+    transform: rotate(-8deg);
+}
+
+
+/* NOTE 2 */
+
+.note-two {
+    right: 15px;
+
+    top: 45px;
+
+    background: #fff1c9;
+
+    transform: rotate(7deg);
+}
+
+
+/* NOTE 3 */
+
+.note-three {
+    left: 65px;
+
+    top: 190px;
+
+    background: #eaf5ff;
+
+    transform: rotate(5deg);
+
+    z-index: 4;
+}
+
+
+/* NOTE 4 */
+
+.note-four {
+    right: 65px;
+
+    top: 180px;
+
+    background: #fce5f1;
+
+    transform: rotate(-5deg);
+
+    z-index: 4;
+}
+
+
+/* HOVER */
+
+.note:hover {
+    transform:
+        translateY(-12px)
+        rotate(0deg)
+        scale(1.05);
+
+    z-index: 10;
+
+    box-shadow:
+        0 18px 30px
+        rgba(180, 100, 130, 0.18);
+}
+
+
+/* =========================
+   TINY REMINDER
+========================= */
+
+.tiny-reminder {
+    margin: 20px auto 30px;
+
+    padding: 20px;
+
+    max-width: 400px;
+
+    border: 1px dashed #f2b3c8;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.65);
+}
+
+
+.tiny-reminder span {
+    color: #d66f96;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+.tiny-reminder p {
+    color: #987080;
+
+    font-family: "Pacifico", cursive;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   HAPPINESS MINI GAME
+========================= */
+
+.happiness-box {
+    width: 320px;
+    min-height: 170px;
+
+    margin: 25px auto 35px;
+
+    padding: 25px 20px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid #ffe1eb;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(214, 105, 145, 0.08);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ICON */
+
+.happiness-icon {
+    color: #e87da5;
+
+    font-size: 25px;
+
+    margin-bottom: 7px;
+
+    animation:
+        happinessFloat
+        2s ease-in-out infinite;
+}
+
+
+@keyframes happinessFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+}
+
+
+/* QUESTION */
+
+.happiness-question {
+    animation: happinessAppear 0.5s ease;
+}
+
+
+.question-title {
+    color: #a65e7c;
+
+    font-family: "Pacifico", cursive;
+
+    font-size: 19px;
+
+    margin: 0 0 4px;
+}
+
+
+.question-subtitle {
+    color: #b08493;
+
+    font-size: 10px;
+
+    margin: 0 0 15px;
+}
+
+
+/* BUTTONS */
+
+.happiness-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.happiness-buttons button,
+.happiness-sad button {
+    border: none;
+
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.happiness-buttons button:first-child {
+    background: #f39abb;
+
+    color: white;
+}
+
+
+.happiness-buttons button:first-child:hover {
+    background: #e982a8;
+
+    transform: translateY(-2px);
+}
+
+
+.happiness-buttons button:last-child {
+    background: #fff0f6;
+
+    color: #c27691;
+}
+
+
+.happiness-buttons button:last-child:hover {
+    background: #ffe1eb;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.happiness-loading {
+    display: none;
+
+    animation: happinessAppear 0.4s ease;
+}
+
+
+.happiness-loading p {
+    color: #a65e7c;
+
+    font-family: "Pacifico", cursive;
+
+    font-size: 17px;
+
+    margin: 0 0 12px;
+}
+
+
+.loading-bar {
+    width: 100%;
+
+    height: 9px;
+
+    background: #ffe1eb;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.loading-fill {
+    width: 0%;
+
+    height: 100%;
+
+    background: #f39abb;
+
+    border-radius: 20px;
+
+    transition: width 0.08s linear;
+}
+
+
+.happiness-loading span {
+    display: block;
+
+    color: #d66f96;
+
+    font-size: 10px;
+
+    margin-top: 7px;
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.happiness-result {
+    display: none;
+
+    animation: happinessAppear 0.5s ease;
+}
+
+
+.result-title {
+    color: #a65e7c;
+
+    font-family: "Pacifico", cursive;
+
+    font-size: 18px;
+
+    margin-bottom: 6px;
+}
+
+
+.happiness-result p {
+    color: #987080;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================
+   NO RESULT
+========================= */
+
+.happiness-sad {
+    display: none;
+
+    animation: happinessAppear 0.5s ease;
+}
+
+
+.happiness-sad p {
+    color: #987080;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    margin: 0 0 12px;
+}
+
+
+.happiness-sad button {
+    background: #fff0f6;
+
+    color: #d66f96;
+}
+
+
+.happiness-sad button:hover {
+    background: #f39abb;
+
+    color: white;
+}
+
+
+/* ANIMATION */
+
+@keyframes happinessAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.support-heart {
+    position: absolute;
+
+    color: #f2a0bb;
+
+    opacity: 0.6;
+
+    animation:
+        supportFloat
+        4s ease-in-out infinite;
+}
+
+
+.sh1 {
+    top: 12%;
+    left: 8%;
+    font-size: 19px;
+}
+
+
+.sh2 {
+    top: 25%;
+    right: 9%;
+    font-size: 13px;
+    animation-delay: 1s;
+}
+
+
+.sh3 {
+    bottom: 20%;
+    left: 10%;
+    font-size: 14px;
+    animation-delay: 2s;
+}
+
+
+.sh4 {
+    bottom: 12%;
+    right: 10%;
+    font-size: 20px;
+    animation-delay: 1.5s;
+}
+
+
+.sh5 {
+    top: 55%;
+    right: 4%;
+    font-size: 10px;
+    animation-delay: 3s;
+}
+
+
+@keyframes supportFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* =========================
+   NOTE POPUP
+========================= */
+
+.note-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(255, 220, 232, 0.55);
+
+    backdrop-filter: blur(5px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 100;
+}
+
+
+.note-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.opened-note {
+    position: relative;
+
+    width: 90%;
+
+    max-width: 470px;
+
+    background: #fffdfd;
+
+    border-radius: 25px;
+
+    padding: 40px 35px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px
+        rgba(188, 88, 125, 0.20);
+
+    transform:
+        scale(0.9)
+        rotate(-2deg);
+
+    transition: 0.35s ease;
+}
+
+
+.note-overlay.show .opened-note {
+    transform:
+        scale(1)
+        rotate(0deg);
+}
+
+
+.opened-note-icon {
+    color: #e87da5;
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+
+.opened-note h2 {
+    font-family: "Pacifico", cursive;
+
+    font-weight: 400;
+
+    color: #a65e7c;
+
+    font-size: 24px;
+
+    line-height: 1.5;
+}
+
+
+.note-line {
+    width: 45px;
+
+    height: 2px;
+
+    background: #f5b2c9;
+
+    margin: 15px auto 20px;
+}
+
+
+.opened-note p {
+    color: #987080;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    margin-bottom: 25px;
+}
+
+
+.note-done {
+    border: none;
+
+    background: #f39abb;
+
+    color: white;
+
+    padding: 10px 22px;
+
+    border-radius: 25px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.note-done:hover {
+    background: #e982a8;
+
+    transform: translateY(-2px);
+}
+
+
+.note-close {
+    position: absolute;
+
+    top: 13px;
+
+    right: 15px;
+
+    width: 30px;
+
+    height: 30px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #fff0f6;
+
+    color: #d66f96;
+
+    font-size: 19px;
+
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+
+    .support-content h1 {
+        font-size: 32px;
+    }
+
+    .pocket-area {
+        height: 500px;
+    }
+
+    .pocket {
+        width: 220px;
+        height: 170px;
+
+        bottom: 30px;
+    }
+
+    .note {
+        width: 125px;
+        min-height: 105px;
+
+        font-size: 10px;
+    }
+
+    .note-one {
+        left: 0;
+        top: 65px;
+    }
+
+    .note-two {
+        right: 0;
+        top: 45px;
+    }
+
+    .note-three {
+        left: 15px;
+        top: 230px;
+    }
+
+    .note-four {
+        right: 15px;
+        top: 220px;
+    }
+
+    .opened-note {
+        padding: 35px 25px;
+    }
+
+}
+/* =================================
+   ABOUT YOU PAGE
+================================= */
+
+.about-you-page {
+    min-height: 100vh;
+    padding: 70px 20px 80px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            #fff0f6 0%,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #ffe5ef 0%,
+            transparent 28%
+        ),
+        #fffafa;
+}
+
+
+.about-you-content {
+    width: 100%;
+    max-width: 700px;
+
+    margin: auto;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    animation: aboutYouAppear 1s ease;
+}
+
+
+@keyframes aboutYouAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* HEARTS */
+
+.about-you-heart {
+    position: absolute;
+
+    color: #f0a0ba;
+
+    opacity: 0.55;
+
+    animation:
+        aboutYouFloat
+        4s ease-in-out infinite;
+}
+
+
+.ay1 {
+    top: 12%;
+    left: 10%;
+    font-size: 20px;
+}
+
+
+.ay2 {
+    top: 28%;
+    right: 12%;
+    font-size: 13px;
+    animation-delay: 1s;
+}
+
+
+.ay3 {
+    top: 55%;
+    left: 7%;
+    font-size: 15px;
+    animation-delay: 2s;
+}
+
+
+.ay4 {
+    bottom: 20%;
+    right: 10%;
+    font-size: 20px;
+    animation-delay: 1.5s;
+}
+
+
+.ay5 {
+    bottom: 10%;
+    left: 18%;
+    font-size: 12px;
+    animation-delay: 3s;
+}
+
+
+@keyframes aboutYouFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* TITLE */
+
+.about-you-small {
+    color: #d889a5;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+
+.about-you-content h1 {
+    font-family: "Pacifico", cursive;
+
+    font-size: 43px;
+
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    color: #92546f;
+
+    margin-bottom: 12px;
+}
+
+
+.about-you-content h1 span {
+    color: #e87da5;
+}
+
+
+.about-you-intro {
+    color: #9e7181;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    max-width: 400px;
+
+    margin: auto;
+}
+
+
+/* MAIN PHOTO */
+
+.person-photo-area {
+    margin: 55px auto 70px;
+
+    position: relative;
+
+    width: 270px;
+}
+
+
+.person-photo {
+    width: 235px;
+    height: 290px;
+
+    padding: 9px 9px 32px;
+
+    background: white;
+
+    box-shadow:
+        0 15px 35px
+        rgba(205, 108, 145, 0.18);
+
+    transform: rotate(-3deg);
+
+    margin: auto;
+
+    position: relative;
+
+    transition: 0.4s ease;
+}
+
+
+.person-photo:hover {
+    transform:
+        rotate(0deg)
+        translateY(-8px)
+        scale(1.02);
+}
+
+
+.person-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.person-photo .photo-tape {
+    position: absolute;
+
+    width: 65px;
+    height: 16px;
+
+    background: #f7b4cb;
+
+    opacity: 0.75;
+
+    top: -8px;
+    left: 85px;
+
+    transform: rotate(2deg);
+}
+
+
+.photo-caption {
+    font-family: "Pacifico", cursive;
+
+    color: #d66f96;
+
+    font-size: 15px;
+
+    margin-top: 12px;
+}
+
+
+.photo-deco {
+    position: absolute;
+
+    color: #e87da5;
+
+    font-size: 22px;
+}
+
+
+.deco-one {
+    left: 0;
+    top: 45px;
+    transform: rotate(-15deg);
+}
+
+
+.deco-two {
+    right: 0;
+    bottom: 45px;
+    transform: rotate(12deg);
+
+    font-size: 16px;
+}
+
+
+/* SECTION */
+
+.section-label {
+    color: #d889a5;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 7px;
+}
+
+
+.little-section h2,
+.chat-section h2,
+.music-section h2 {
+    font-family: "Pacifico", cursive;
+
+    font-weight: 400;
+
+    color: #a65e7c;
+
+    font-size: 27px;
+
+    margin-bottom: 20px;
+}
+
+
+/* MEMORY PAPER */
+
+.memory-paper {
+    width: 340px;
+
+    margin: 0 auto 75px;
+
+    padding: 25px 30px;
+
+    background: #fff4c9;
+
+    box-shadow:
+        0 10px 25px
+        rgba(190, 150, 90, 0.12);
+
+    transform: rotate(1deg);
+
+    text-align: left;
+
+    position: relative;
+}
+
+
+.memory-paper::before {
+    content: "";
+
+    position: absolute;
+
+    width: 55px;
+    height: 14px;
+
+    background: #f7c4d4;
+
+    opacity: 0.75;
+
+    top: -7px;
+    left: 140px;
+
+    transform: rotate(-3deg);
+}
+
+
+.memory-paper p {
+    color: #94737d;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    margin: 8px 0;
+}
+
+
+/* CHAT */
+
+.chat-section {
+    margin-top: 20px;
+}
+
+
+.chat-intro {
+    color: #9e7181;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+
+.chat-gallery {
+    width: 430px;
+
+    height: 360px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+
+.chat-paper {
+    position: absolute;
+
+    width: 190px;
+
+    padding: 8px;
+
+    background: white;
+
+    box-shadow:
+        0 10px 25px
+        rgba(205, 108, 145, 0.16);
+
+    transition: 0.35s ease;
+}
+
+
+.chat-paper img {
+    width: 100%;
+
+    display: block;
+}
+
+
+.chat-one {
+    left: 0;
+    top: 50px;
+
+    transform: rotate(-7deg);
+
+    z-index: 1;
+}
+
+
+.chat-two {
+    left: 120px;
+    top: 0;
+
+    transform: rotate(2deg);
+
+    z-index: 3;
+}
+
+
+.chat-three {
+    right: 0;
+    top: 50px;
+
+    transform: rotate(7deg);
+
+    z-index: 2;
+}
+
+
+.chat-paper:hover {
+    transform:
+        translateY(-10px)
+        rotate(0deg)
+        scale(1.04);
+
+    z-index: 10;
+}
+
+
+/* MUSIC */
+
+.music-section {
+    margin-top: 35px;
+
+    margin-bottom: 70px;
+}
+
+
+.music-player {
+    width: 400px;
+
+    margin: auto;
+
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid #ffe1eb;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(214, 105, 145, 0.10);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    text-align: left;
+}
+
+
+/* DISC */
+
+.music-disc {
+    width: 95px;
+    height: 95px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff0f6 0 13%,
+            #f39abb 14% 20%,
+            #e982a8 21% 100%
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(214, 105, 145, 0.18);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.disc-center {
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #e87da5;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 13px;
+}
+
+
+.music-info {
+    flex: 1;
+}
+
+
+.song-title {
+    color: #a65e7c;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin: 0 0 3px;
+}
+
+
+.song-artist {
+    color: #b08493;
+
+    font-size: 10px;
+
+    margin: 0 0 12px;
+}
+
+
+.music-line {
+    width: 100%;
+    height: 4px;
+
+    background: #ffe1eb;
+
+    border-radius: 10px;
+
+    margin-bottom: 12px;
+}
+
+
+.music-line span {
+    display: block;
+
+    width: 30%;
+
+    height: 100%;
+
+    background: #f39abb;
+
+    border-radius: 10px;
+}
+
+
+.music-controls {
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.music-controls button {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f39abb;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.music-controls button:hover {
+    background: #e982a8;
+
+    transform: scale(1.08);
+}
+
+
+/* ENDING */
+
+.about-you-ending {
+    width: 430px;
+
+    max-width: 90%;
+
+    margin: auto;
+
+    padding: 25px;
+
+    border-top: 1px dashed #f3b3c8;
+
+    border-bottom: 1px dashed #f3b3c8;
+}
+
+
+.ending-heart {
+    color: #e87da5;
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+
+.about-you-ending p {
+    color: #987080;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .about-you-content h1 {
+        font-size: 34px;
+    }
+
+
+    .memory-paper {
+        width: 85%;
+    }
+
+
+    .chat-gallery {
+        width: 330px;
+        height: 300px;
+    }
+
+
+    .chat-paper {
+        width: 145px;
+    }
+
+
+    .chat-two {
+        left: 93px;
+    }
+
+
+    .music-player {
+        width: 90%;
+
+        padding: 18px;
+    }
+
+
+    .music-disc {
+        width: 75px;
+        height: 75px;
+    }
+
+}
+/* =====================================
+   FINAL PAGE
+===================================== */
+
+.final-page {
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #fff0f6 0%,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            #ffe4ef 0%,
+            transparent 30%
+        ),
+        #fffafa;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+}
+
+
+/* FLOATING HEARTS */
+
+.final-heart {
+    position: absolute;
+
+    color: #f0a0ba;
+
+    opacity: 0.55;
+
+    animation:
+        finalFloat
+        4s ease-in-out infinite;
+}
+
+.fh1 {
+    top: 15%;
+    left: 12%;
+    font-size: 18px;
+}
+
+.fh2 {
+    top: 28%;
+    right: 14%;
+    font-size: 13px;
+    animation-delay: 1s;
+}
+
+.fh3 {
+    bottom: 20%;
+    left: 10%;
+    font-size: 15px;
+    animation-delay: 2s;
+}
+
+.fh4 {
+    bottom: 15%;
+    right: 12%;
+    font-size: 13px;
+    animation-delay: 1.5s;
+}
+
+.fh5 {
+    top: 55%;
+    right: 7%;
+    font-size: 10px;
+    animation-delay: 3s;
+}
+
+
+@keyframes finalFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+/* =========================
+   OPENING
+========================= */
+
+.final-opening {
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.final-opening.hide {
+
+    opacity: 0;
+
+    transform: scale(0.9);
+
+    pointer-events: none;
+
+}
+
+
+.final-small {
+
+    color: #d889a5;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+
+.final-opening h1 {
+
+    font-family: "Pacifico", cursive;
+
+    font-size: 42px;
+
+    line-height: 1.35;
+
+    font-weight: 400;
+
+    color: #92546f;
+
+    margin-bottom: 25px;
+}
+
+
+.final-opening h1 span {
+
+    color: #e87da5;
+
+}
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope-area {
+
+    height: 190px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.final-envelope {
+
+    width: 220px;
+
+    height: 145px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    animation:
+        envelopeFloat
+        3s ease-in-out infinite;
+
+    transition: transform 0.5s ease;
+}
+
+
+@keyframes envelopeFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+.envelope-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #f6a1bd;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 30px
+        rgba(205, 108, 145, 0.20);
+}
+
+
+.envelope-front {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+
+    border-bottom: 75px solid #ef91b0;
+
+    z-index: 3;
+}
+
+
+.envelope-flap {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+
+    border-top: 78px solid #f8b0c8;
+
+    transform-origin: top;
+
+    transition:
+        transform 0.8s ease;
+
+    z-index: 4;
+}
+
+
+.final-envelope.open .envelope-flap {
+
+    transform: rotateX(180deg);
+
+    z-index: 1;
+}
+
+
+.envelope-paper {
+
+    position: absolute;
+
+    width: 175px;
+
+    height: 115px;
+
+    background: #fffdfd;
+
+    left: 22px;
+
+    top: 15px;
+
+    border-radius: 5px;
+
+    z-index: 2;
+
+    transition:
+        transform 1s ease;
+
+    box-shadow:
+        0 5px 15px
+        rgba(180, 90, 120, 0.08);
+}
+
+
+.envelope-paper span {
+
+    display: block;
+
+    margin-top: 25px;
+
+    font-family: "Pacifico", cursive;
+
+    color: #d66f96;
+
+    font-size: 14px;
+}
+
+
+.final-envelope.open .envelope-paper {
+
+    transform:
+        translateY(-80px);
+}
+
+
+.envelope-heart {
+
+    position: absolute;
+
+    z-index: 5;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #e87da5;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 20px;
+
+    transition: 0.5s ease;
+}
+
+
+.final-envelope.open .envelope-heart {
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.5);
+}
+
+
+/* BUTTON */
+
+.open-final-button {
+
+    border: none;
+
+    background: #f39abb;
+
+    color: white;
+
+    padding: 11px 24px;
+
+    border-radius: 25px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(214, 105, 145, 0.15);
+
+    transition: 0.3s ease;
+}
+
+
+.open-final-button:hover {
+
+    background: #e982a8;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.final-letter-section {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+    z-index: 10;
+}
+
+
+.final-letter-section.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+
+.final-letter-section.hide {
+
+    opacity: 0;
+
+    transform: scale(0.9);
+
+}
+
+
+.final-letter {
+
+    width: 90%;
+
+    max-width: 570px;
+
+    max-height: 80vh;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    padding: 40px 45px;
+
+    background: #fffdfd;
+
+    border: 1px solid #ffdce8;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(188, 88, 125, 0.18);
+
+    text-align: center;
+
+    position: relative;
+}
+
+
+.letter-top-heart {
+
+    color: #e87da5;
+
+    font-size: 27px;
+
+    margin-bottom: 5px;
+
+    animation:
+        letterPulse
+        1.5s ease-in-out infinite;
+}
+
+
+@keyframes letterPulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+.letter-label {
+
+    color: #d889a5;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.final-letter h2 {
+
+    font-family: "Pacifico", cursive;
+
+    color: #a65e7c;
+
+    font-size: 29px;
+
+    font-weight: 400;
+
+    margin: 8px 0 15px;
+}
+
+
+.final-line {
+
+    width: 45px;
+
+    height: 2px;
+
+    background: #f5b2c9;
+
+    margin: 0 auto 22px;
+
+    border-radius: 10px;
+}
+
+
+.typed-letter {
+
+    color: #987080;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    white-space: pre-line;
+
+    text-align: left;
+
+    min-height: 250px;
+}
+
+
+.letter-sign {
+
+    color: #d66f96;
+
+    font-family: "Pacifico", cursive;
+
+    font-size: 17px;
+
+    text-align: right;
+
+    margin-top: 20px;
+}
+
+
+.surprise-button {
+
+    border: none;
+
+    background: #fff0f6;
+
+    color: #d66f96;
+
+    padding: 10px 18px;
+
+    border-radius: 20px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    margin-top: 15px;
+
+    transition: 0.3s ease;
+}
+
+
+.surprise-button:hover {
+
+    background: #f39abb;
+
+    color: white;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================
+   SURPRISE
+========================= */
+
+.final-surprise {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(0.9);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+    z-index: 20;
+}
+
+
+.final-surprise.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+
+}
+
+
+.surprise-content {
+
+    max-width: 500px;
+
+    position: relative;
+
+    z-index: 30;
+}
+
+
+.big-surprise-heart {
+
+    font-size: 55px;
+
+    color: #e87da5;
+
+    animation:
+        surpriseHeart
+        1.3s ease-in-out infinite;
+}
+
+
+@keyframes surpriseHeart {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+
+}
+
+
+.surprise-content h2 {
+
+    font-family: "Pacifico", cursive;
+
+    font-size: 28px;
+
+    line-height: 1.5;
+
+    font-weight: 400;
+
+    color: #a65e7c;
+
+    margin: 15px 0;
+}
+
+
+.surprise-content p {
+
+    color: #987080;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+.surprise-name {
+
+    font-family: "Pacifico", cursive;
+
+    color: #d66f96;
+
+    font-size: 19px;
+
+    margin-top: 18px;
+}
+
+
+/* FINAL BUTTONS */
+
+.final-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+}
+
+
+.final-buttons button {
+
+    border: none;
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    background: #fff0f6;
+
+    color: #d66f96;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.final-buttons button:hover {
+
+    background: #f39abb;
+
+    color: white;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================
+   FALLING HEARTS
+========================= */
+
+.heart-container {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 25;
+}
+
+
+.falling-heart {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    color: #f39abb;
+
+    opacity: 0;
+
+    animation:
+        heartRise
+        5s linear
+        forwards;
+}
+
+
+@keyframes heartRise {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(0.7);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: 0.8;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .final-page {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .final-opening h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .final-envelope {
+
+        width: 190px;
+
+        height: 125px;
+
+    }
+
+
+    .envelope-front,
+    .envelope-flap {
+
+        border-left-width: 95px;
+
+        border-right-width: 95px;
+
+    }
+
+
+    .envelope-front {
+
+        border-bottom-width: 65px;
+
+    }
+
+
+    .envelope-flap {
+
+        border-top-width: 68px;
+
+    }
+
+
+    .envelope-paper {
+
+        width: 150px;
+
+        height: 100px;
+
+        left: 20px;
+
+    }
+
+
+    .final-letter {
+
+        width: 94%;
+
+        max-height: 82vh;
+
+        padding: 30px 23px;
+
+    }
+
+
+    .final-letter h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .typed-letter {
+
+        font-size: 12px;
+
+        line-height: 1.8;
+
+        min-height: 220px;
+
+    }
+
+
+    .surprise-content h2 {
+
+        font-size: 23px;
+
+    }
+
+}

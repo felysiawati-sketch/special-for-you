@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Reminder ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="support-page">
+
+        <!-- floating hearts -->
+        <span class="support-heart sh1">♡</span>
+        <span class="support-heart sh2">♥</span>
+        <span class="support-heart sh3">♡</span>
+        <span class="support-heart sh4">♥</span>
+        <span class="support-heart sh5">♡</span>
+
+
+        <section class="support-content">
+
+            <p class="support-small">
+                psst... come here ♡
+            </p>
+
+            <h1>
+                a little<br>
+                <span>reminder for you</span>
+            </h1>
+
+            <p class="support-intro">
+                I have a few tiny things
+                I want you to remember.
+            </p>
+
+
+            <!-- =========================
+                 POCKET
+            ========================== -->
+
+            <div class="pocket-area">
+
+                <!-- sticky notes -->
+
+                <button class="note note-one"
+                    onclick="openNote(
+                    'open when you’re tired ♡',
+                    'It is okay to slow down sometimes. You do not have to finish everything in one day. Take a little break, breathe, and continue when you are ready.'
+                    )">
+
+                    <span>♡</span>
+                    open when<br>
+                    you're tired
+
+                </button>
+
+
+                <button class="note note-two"
+                    onclick="openNote(
+                    'open when things feel hard ♡',
+                    'Some days are harder than others, and that is okay. Do not forget how many things you have already gotten through. One difficult day does not define you.'
+                    )">
+
+                    <span>☁</span>
+                    open when<br>
+                    things feel hard
+
+                </button>
+
+
+                <button class="note note-three"
+                    onclick="openNote(
+                    'open when you doubt yourself ♡',
+                    'Believe in yourself a little more. You may not see how far you have come, but that does not mean your progress is not real. Keep going, little by little.'
+                    )">
+
+                    <span>♡</span>
+                    open when<br>
+                    you doubt yourself
+
+                </button>
+
+
+                <button class="note note-four"
+                    onclick="openNote(
+                    'open when you need a smile ♡',
+                    'Here is your tiny reminder to smile. Whatever is happening right now, I hope something small today can make your day a little brighter.'
+                    )">
+
+                    <span>✦</span>
+                    open when you<br>
+                    need a smile
+
+                </button>
+
+
+                <!-- POCKET -->
+
+                <div class="pocket">
+
+                    <div class="pocket-top">
+                        little pocket
+                    </div>
+
+                    <div class="pocket-heart">
+                        ♡
+                    </div>
+
+                    <p>
+                        pick a note
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LITTLE REMINDER -->
+
+            <div class="tiny-reminder">
+
+                <span>tiny reminder ♡</span>
+
+                <p>
+                    you don't have to be perfect.<br>
+                    just keep being you.
+                </p>
+
+            </div>
+
+
+            <!-- LOADING -->
+
+            <!-- =========================
+     HAPPINESS MINI GAME
+========================= -->
+
+<div class="happiness-box" id="happinessBox">
+
+    <!-- PERTANYAAN -->
+
+    <div class="happiness-question" id="happinessQuestion">
+
+        <div class="happiness-icon">
+            ♡
+        </div>
+
+        <p class="question-title">
+            are you happy today?
+        </p>
+
+        <p class="question-subtitle">
+            be honest... ♡
+        </p>
+
+        <div class="happiness-buttons">
+
+            <button onclick="chooseYes()">
+                yes! ♡
+            </button>
+
+            <button onclick="chooseNo()">
+                not really...
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOADING -->
+
+    <div class="happiness-loading" id="happinessLoading">
+
+        <div class="happiness-icon">
+            ♡
+        </div>
+
+        <p>
+            loading happiness...
+        </p>
+
+        <div class="loading-bar">
+
+            <div class="loading-fill"
+                id="loadingFill">
+            </div>
+
+        </div>
+
+        <span id="loadingPercent">
+            0%
+        </span>
+
+    </div>
+
+
+    <!-- HASIL YES -->
+
+    <div class="happiness-result" id="happinessResult">
+
+        <div class="happiness-icon">
+            ♡
+        </div>
+
+        <p class="result-title">
+            happiness loaded!
+        </p>
+
+        <p>
+            yayyy ♡<br>
+            keep that little smile.
+        </p>
+
+    </div>
+
+
+    <!-- HASIL NO -->
+
+    <div class="happiness-sad" id="happinessSad">
+
+        <div class="happiness-icon">
+            ☁
+        </div>
+
+        <p class="result-title">
+            that's okay ♡
+        </p>
+
+        <p>
+            you don't have to be happy<br>
+            all the time.
+        </p>
+
+        <button onclick="tryAgain()">
+            try again ♡
+        </button>
+
+    </div>
+
+</div>
+
+
+            <button class="next-button"
+                onclick="window.location.href='about-you.html'">
+                one last thing ♡
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         NOTE POP UP
+    ========================== -->
+
+    <div class="note-overlay" id="noteOverlay">
+
+        <div class="opened-note">
+
+            <button class="note-close"
+                onclick="closeNote()">
+                ×
+            </button>
+
+            <div class="opened-note-icon">
+                ♡
+            </div>
+
+            <h2 id="noteTitle">
+                A little reminder ♡
+            </h2>
+
+            <div class="note-line"></div>
+
+            <p id="noteText">
+                Your message goes here.
+            </p>
+
+            <button class="note-done"
+                onclick="closeNote()">
+                okay, got it ♡
+            </button>
+
+        </div>
+
+    </div>
+
+
+   <script>
+
+function chooseYes() {
+
+    const question = document.getElementById("happinessQuestion");
+    const loading = document.getElementById("happinessLoading");
+    const result = document.getElementById("happinessResult");
+
+    const fill = document.getElementById("loadingFill");
+    const percent = document.getElementById("loadingPercent");
+
+    question.style.display = "none";
+    loading.style.display = "block";
+    result.style.display = "none";
+
+    let progress = 0;
+
+    const interval = setInterval(function () {
+
+        progress++;
+
+        fill.style.width = progress + "%";
+        percent.textContent = progress + "%";
+
+        if (progress >= 100) {
+
+            clearInterval(interval);
+
+            setTimeout(function () {
+
+                loading.style.display = "none";
+                result.style.display = "block";
+
+            }, 400);
+        }
+
+    }, 25);
+}
+
+
+function chooseNo() {
+
+    document.getElementById("happinessQuestion").style.display = "none";
+
+    document.getElementById("happinessSad").style.display = "block";
+
+}
+
+
+function tryAgain() {
+
+    document.getElementById("happinessSad").style.display = "none";
+
+    document.getElementById("happinessQuestion").style.display = "block";
+
+}
+
+</script>
+
+</body>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thank You ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="thankyou-page">
+
+        <!-- Hearts -->
+        <span class="thank-heart th1">♡</span>
+        <span class="thank-heart th2">♥</span>
+        <span class="thank-heart th3">♡</span>
+        <span class="thank-heart th4">♥</span>
+        <span class="thank-heart th5">♡</span>
+
+        <section class="thankyou-content">
+
+            <p class="thank-small">there's something</p>
+
+            <h1>
+                I want to say<br>
+                <span>thank you ♡</span>
+            </h1>
+
+
+            <!-- =========================
+                 6 KOTAK
+            ========================== -->
+
+            <div class="thank-cards">
+
+                <!-- CARD 1 -->
+                <div class="thank-card">
+                    <div class="card-heart">♡</div>
+
+                    <h2>Thank you<br>for being you</h2>
+
+                    <button class="read-button"
+                        onclick="openLetter(
+                        'Thank you for being you ♡',
+                        'Thank you for simply being yourself. There is something really special about the way you are, even in the little things you probably never notice. I hope you always remember that being yourself is already more than enough.'
+                        )">
+                        read more ♡
+                    </button>
+                </div>
+
+
+                <!-- CARD 2 -->
+                <div class="thank-card">
+                    <div class="card-heart">♡</div>
+
+                    <h2>The little<br>things</h2>
+
+                    <button class="read-button"
+                        onclick="openLetter(
+                        'The little things ♡',
+                        'Sometimes it is not the big things that stay in my memory. It is the small conversations, random jokes, little moments, and simple things that somehow become memories worth keeping.'
+                        )">
+                        read more ♡
+                    </button>
+                </div>
+
+
+                <!-- CARD 3 -->
+                <div class="thank-card">
+                    <div class="card-heart">♡</div>
+
+                    <h2>For every<br>conversation</h2>
+
+                    <button class="read-button"
+                        onclick="openLetter(
+                        'For every conversation ♡',
+                        'Thank you for every conversation we have had. Whether it was something important, something random, or just a silly little conversation, somehow they all became moments I am happy to remember.'
+                        )">
+                        read more ♡
+                    </button>
+                </div>
+
+
+                <!-- CARD 4 -->
+                <div class="thank-card">
+                    <div class="card-heart">♡</div>
+
+                    <h2>For every<br>laugh</h2>
+
+                    <button class="read-button"
+                        onclick="openLetter(
+                        'For every laugh ♡',
+                        'Thank you for all the moments that made me smile and laugh. Some moments may seem ordinary, but they become special because of the people we share them with.'
+                        )">
+                        read more ♡
+                    </button>
+                </div>
+
+
+                <!-- CARD 5 -->
+                <div class="thank-card">
+                    <div class="card-heart">♡</div>
+
+                    <h2>For the<br>memories</h2>
+
+                    <button class="read-button"
+                        onclick="openLetter(
+                        'For the memories ♡',
+                        'There are moments that pass quickly, but somehow stay in our minds for a long time. Thank you for being part of some of those moments and memories.'
+                        )">
+                        read more ♡
+                    </button>
+                </div>
+
+
+                <!-- CARD 6 -->
+                <div class="thank-card">
+                    <div class="card-heart">♡</div>
+
+                    <h2>Most<br>importantly...</h2>
+
+                    <button class="read-button"
+                        onclick="openLetter(
+                        'Most importantly... ♡',
+                        'Thank you for becoming someone special in my life. I do not know where all the little moments will take us, but I am genuinely grateful that I got to know you and create these memories together.'
+                        )">
+                        read more ♡
+                    </button>
+                </div>
+
+            </div>
+
+
+            <button class="next-button"
+                onclick="window.location.href='support.html'">
+                there's more ♡
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         POP-UP SURAT
+    ========================== -->
+
+    <div class="letter-overlay" id="letterOverlay">
+
+        <div class="big-letter">
+
+            <button class="close-letter"
+                onclick="closeLetter()">
+                ×
+            </button>
+
+            <div class="big-letter-heart">
+                ♡
+            </div>
+
+            <h2 id="letterTitle">
+                Thank you ♡
+            </h2>
+
+            <div class="letter-line"></div>
+
+            <p id="letterText">
+                Isi pesan akan muncul di sini.
+            </p>
+
+            <button class="close-button"
+                onclick="closeLetter()">
+                close ♡
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function openLetter(title, text) {
+
+            document.getElementById("letterTitle").textContent = title;
+            document.getElementById("letterText").textContent = text;
+
+            document
+                .getElementById("letterOverlay")
+                .classList.add("show");
+
+        }
+
+
+        function closeLetter() {
+
+            document
+                .getElementById("letterOverlay")
+                .classList.remove("show");
+
+        }
+
+
+        // Klik area luar kotak untuk menutup
+        document
+            .getElementById("letterOverlay")
+            .addEventListener("click", function(event) {
+
+                if (event.target === this) {
+                    closeLetter();
+                }
+
+            });
+
+    </script>
+
+</body>
+</html>
