@@ -31,11 +31,11 @@
         <section class="about-content">
 
             <p class="about-small">
-                a little introduction
+                Mau kenalan atau udaa kenal?
             </p>
 
             <h1>
-                Hi, it's me <span>♡</span>
+                Haii kakkk <span>♡</span>
             </h1>
 
 <div class="photo-gallery">
@@ -48,37 +48,116 @@
 
     <!-- Foto tengah -->
     <div class="photo-frame photo-center">
-        <img src="images/feli4.jpeg" alt="Foto saya">
+        <img src="images/feli2.jpeg" alt="Foto saya">
         <div class="photo-tape"></div>
     </div>
 
     <!-- Foto kanan -->
     <div class="photo-frame photo-right">
-        <img src="images/feli2.jpeg" alt="Foto saya">
+        <img src="images/feli3.jpeg" alt="Foto saya">
         <div class="photo-tape"></div>
     </div>
 
 </div>
 
+<section class="tiny-game">
+
+    <h2>tap & see what happens!</h2>
+
+
+    <div class="game-board" id="gameBoard">
+
+        <div class="game-item heart-item" data-item="heart">
+            💗
+        </div>
+
+        <div class="game-item star-item" data-item="star">
+            ★
+        </div>
+
+        <div class="game-item bow-item" data-item="bow">
+            🎀
+        </div>
+
+        <div class="game-item bear-item" data-item="bear">
+            🧸
+        </div>
+
+
+    </div>
+
+</section>
+
   <!-- Nama -->
             <h2>
-                Fely ♡
+                dibuatt oleh pilii
             </h2>
 
             <p class="about-text">
-                Haiiii kakk inii adekk.
+                Sedikit ruang khusus untukk kakakk
                 <br>
-                This little corner is just a tiny part of me
-                that I wanted you to know.
+                Halaman kecil ini dibuat khusus untuk kakakk. semoga bisa menjadi alasan sederhana untuk kakakk tersenyum hari inii yaa!
             </p>
 
             <button class="next-button" onclick="window.location.href='thankyou.html'">
-                keep reading ♡
+                Lanjut baca yuk 
             </button>
 
         </section>
 
     </main>
+    
+    <script src="script.js"></script>
+    <script>
+const tinyGameItems = document.querySelectorAll(".game-item");
+
+tinyGameItems.forEach(function(item) {
+
+    item.addEventListener("click", function() {
+
+        const emoji = item.textContent.trim();
+        const rect = item.getBoundingClientRect();
+
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        for (let i = 0; i < 14; i++) {
+
+            const particle = document.createElement("span");
+
+            particle.className = "emoji-particle";
+            particle.textContent = emoji;
+
+            particle.style.left = centerX + "px";
+            particle.style.top = centerY + "px";
+
+            particle.style.setProperty(
+                "--move-x",
+                ((Math.random() - 0.5) * 200) + "px"
+            );
+
+            particle.style.setProperty(
+                "--move-y",
+                ((Math.random() - 0.5) * 200) + "px"
+            );
+
+            particle.style.setProperty(
+                "--rotate",
+                ((Math.random() - 0.5) * 360) + "deg"
+            );
+
+            document.body.appendChild(particle);
+
+            setTimeout(function() {
+                particle.remove();
+            }, 900);
+
+        }
+
+    });
+
+});
+</script>
 
 </body>
 

@@ -7,156 +7,819 @@
 
     <title>One Last Thing ♡</title>
 
-    <link rel="stylesheet" href="style.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================
+           DASAR
+           (CSS halaman ini ada di sini, jadi tidak lagi bergantung ke style.css)
+        ========================= */
+
+        :root {
+            --bg: #0a0509;
+            --card: #170b13;
+            --card-line: rgba(243, 160, 192, 0.18);
+            --pink: #f3a0c0;
+            --pink-deep: #d9608c;
+            --pink-soft: #f7c3d6;
+            --text: #f2d3df;
+            --text-soft: #c9a0b2;
+            --paper: #ffeef5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: radial-gradient(ellipse at top, #1d0c17 0%, var(--bg) 60%);
+            background-attachment: fixed;
+            color: var(--text);
+            font-family: "DM Sans", system-ui, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        button:focus-visible {
+            outline: 2px solid var(--pink-soft);
+            outline-offset: 3px;
+        }
+
+
+        /* =========================
+           TATA LETAK UTAMA
+           Satu kolom, semua rata tengah, jarak antar bagian tetap
+        ========================= */
+
+        .final-page {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            padding: 48px 20px 96px;
+            padding-top: max(48px, env(safe-area-inset-top));
+            padding-bottom: max(96px, env(safe-area-inset-bottom));
+        }
+
+        .final-page > section {
+            width: 100%;
+            max-width: 420px;
+        }
+
+
+        /* =========================
+           KOTAK LAGU
+        ========================= */
+
+        .final-music {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .final-heart {
+            font-size: 36px;
+            line-height: 1;
+            color: var(--pink);
+            margin-bottom: 14px;
+        }
+
+        .final-music h1 {
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-size: clamp(22px, 5vw, 28px);
+            line-height: 1.4;
+            color: var(--pink-soft);
+        }
+
+        .final-music > p {
+            margin-top: 8px;
+            margin-bottom: 18px;
+            font-size: 14px;
+            color: var(--text-soft);
+        }
+
+        .final-music-card {
+            width: 100%;
+            max-width: 280px;
+            padding: 16px;
+            background: var(--card);
+            border: 1px solid var(--card-line);
+            border-radius: 24px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .final-cover {
+            width: 62%;
+            margin: 0 auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 16px;
+            background: #2a1420;
+            display: block;
+        }
+
+        .final-song-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .final-song-artist {
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            color: var(--text-soft);
+            text-transform: uppercase;
+        }
+
+        .final-progress {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .final-progress-fill {
+            width: 0;
+            height: 100%;
+            background: var(--pink);
+            border-radius: 999px;
+        }
+
+        .final-time {
+            display: flex;
+            justify-content: space-between;
+            margin-top: -6px;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        #finalPlayButton {
+            width: 100%;
+            padding: 13px 20px;
+            background: transparent;
+            color: var(--pink-soft);
+            border: 1.5px solid var(--pink-deep);
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        #finalPlayButton:hover {
+            background: rgba(217, 96, 140, 0.15);
+        }
+
+        .final-next-button {
+            margin-top: 22px;
+        }
+
+        .final-next-button,
+        .open-final-button,
+        .surprise-button,
+        .final-buttons button {
+            min-height: 44px;
+            padding: 12px 28px;
+            background: var(--pink);
+            color: #5a1d38;
+            border: none;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(243, 160, 192, 0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .final-next-button:hover,
+        .open-final-button:hover,
+        .surprise-button:hover,
+        .final-buttons button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(243, 160, 192, 0.35);
+        }
+
+        .final-next-button.is-used {
+            display: none;
+        }
+
+
+        /* =========================
+           AREA SURAT
+           Muncul tepat di bawah kotak lagu.
+           Amplop, surat, dan penutup bergantian di slot yang sama.
+        ========================= */
+
+        .final-stage {
+            display: none;
+            width: 100%;
+            max-width: 420px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .final-stage.show {
+            display: flex;
+        }
+
+        .final-stage > section {
+            display: none;
+            width: 100%;
+        }
+
+        .final-stage > section.show {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 0.7s ease both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+
+        /* =========================
+           AMPLOP
+        ========================= */
+
+        .final-opening {
+            position: relative;
+        }
+
+        .final-opening .final-heart {
+            position: absolute;
+            margin: 0;
+            font-size: 18px;
+            opacity: 0.6;
+            animation: floaty 4s ease-in-out infinite;
+        }
+
+        .fh1 { top: 4%;  left: 6%; }
+        .fh2 { top: 10%; right: 8%; animation-delay: 0.8s; }
+        .fh3 { top: 46%; left: 2%;  animation-delay: 1.6s; }
+        .fh4 { top: 52%; right: 4%; animation-delay: 2.2s; }
+        .fh5 { top: 80%; left: 12%; animation-delay: 1.2s; }
+
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-10px); }
+        }
+
+        .final-small {
+            font-size: 14px;
+            color: var(--text-soft);
+        }
+
+        .final-opening h1 {
+            margin-top: 6px;
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-size: clamp(30px, 8vw, 40px);
+            line-height: 1.35;
+            color: var(--pink-soft);
+        }
+
+        .final-opening h1 span {
+            color: var(--pink);
+        }
+
+        .envelope-area {
+            height: 190px;
+            margin-top: 44px; /* ruang untuk kertas yang naik, supaya tidak menabrak judul */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .final-envelope {
+            width: 220px;
+            height: 145px;
+            position: relative;
+            cursor: pointer;
+            animation: envelopeFloat 3s ease-in-out infinite;
+            transition: transform 0.5s ease;
+        }
+
+        @keyframes envelopeFloat {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-8px); }
+        }
+
+        .envelope-back {
+            position: absolute;
+            inset: 0;
+            background: #f6a1bd;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(205, 108, 145, 0.20);
+        }
+
+        .envelope-front {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 110px solid transparent;
+            border-right: 110px solid transparent;
+            border-bottom: 75px solid #ef91b0;
+            z-index: 3;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 110px solid transparent;
+            border-right: 110px solid transparent;
+            border-top: 78px solid #f8b0c8;
+            transform-origin: top;
+            transition: transform 0.8s ease;
+            z-index: 4;
+        }
+
+        .final-envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope-paper {
+            position: absolute;
+            width: 175px;
+            height: 115px;
+            background: #fffdfd;
+            left: 22px;
+            top: 15px;
+            border-radius: 5px;
+            z-index: 2;
+            transition: transform 1s ease;
+            box-shadow: 0 5px 15px rgba(180, 90, 120, 0.08);
+        }
+
+        .envelope-paper span {
+            display: block;
+            margin-top: 25px;
+            font-family: "Pacifico", cursive;
+            color: #d66f96;
+            font-size: 14px;
+        }
+
+        .final-envelope.open .envelope-paper {
+            transform: translateY(-80px);
+        }
+
+        .envelope-heart {
+            position: absolute;
+            z-index: 5;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: white;
+            color: #e87da5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            transition: 0.5s ease;
+        }
+
+        .final-envelope.open .envelope-heart {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+
+        /* TOMBOL OPEN (gaya lama) */
+
+        .open-final-button {
+            border: none;
+            background: #f39abb;
+            color: white;
+            padding: 11px 24px;
+            border-radius: 25px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(214, 105, 145, 0.15);
+            transition: 0.3s ease;
+        }
+
+        .open-final-button:hover {
+            background: #e982a8;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           SURAT
+        ========================= */
+
+        .final-letter {
+            width: 100%;
+            padding: 24px 22px 20px;
+            background: var(--paper);
+            color: #4a2536;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .letter-top-heart {
+            font-size: 34px;
+            line-height: 1;
+            color: var(--pink-deep);
+        }
+
+        .letter-label {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #9b6580;
+        }
+
+        .final-letter h2 {
+            margin-top: 10px;
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-size: 26px;
+            color: #c2557f;
+        }
+
+        .final-line {
+            width: 56px;
+            height: 2px;
+            margin: 10px auto 12px;
+            background: var(--pink);
+            border-radius: 2px;
+        }
+
+        .typed-letter {
+            height: min(30vh, 190px);
+            overflow-y: auto;
+            padding-right: 6px;
+            white-space: pre-line;
+            text-align: left;
+            font-size: 15px;
+            line-height: 1.7;
+            scrollbar-width: thin;
+            scrollbar-color: var(--pink) transparent;
+        }
+
+        .letter-sign {
+            margin-top: 10px;
+            font-family: "Pacifico", cursive;
+            font-size: 18px;
+            color: #c2557f;
+            text-align: right;
+        }
+
+        .surprise-button {
+            margin-top: 16px;
+            background: var(--pink-deep);
+            color: #fff;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.6s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .surprise-button.ready {
+            visibility: visible;
+            opacity: 1;
+        }
+
+
+        /* =========================
+           PENUTUP
+        ========================= */
+
+        .surprise-content {
+            width: 100%;
+            padding: 36px 24px;
+            background: var(--card);
+            border: 1px solid var(--card-line);
+            border-radius: 28px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .big-surprise-heart {
+            font-size: 56px;
+            line-height: 1;
+            color: var(--pink);
+        }
+
+        .surprise-content h2 {
+            margin-top: 18px;
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-size: clamp(22px, 6vw, 28px);
+            line-height: 1.45;
+            color: var(--pink-deep);
+        }
+
+        .surprise-content p {
+            margin-top: 14px;
+            max-width: 32ch;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .surprise-name {
+            margin-top: 18px;
+            font-family: "Pacifico", cursive;
+            font-size: 20px;
+            color: var(--pink-soft);
+        }
+
+        .final-buttons {
+            margin-top: 26px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .final-buttons button:last-child {
+            background: transparent;
+            color: var(--pink-soft);
+            border: 1.5px solid var(--pink-deep);
+            box-shadow: none;
+        }
+
+
+        /* =========================
+           HATI JATUH
+        ========================= */
+
+        .heart-container {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .falling-heart {
+            position: absolute;
+            top: -40px;
+            color: var(--pink);
+            opacity: 0;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes fall {
+            0%   { transform: translateY(0) rotate(0deg);          opacity: 0; }
+            10%  { opacity: 0.8; }
+            90%  { opacity: 0.6; }
+            100% { transform: translateY(110vh) rotate(360deg);    opacity: 0; }
+        }
+
+        @media (max-width: 480px) {
+            .final-page {
+                gap: 28px;
+            }
+
+            .final-letter {
+                padding: 22px 18px 18px;
+            }
+
+            .typed-letter {
+                font-size: 14px;
+            }
+
+            .surprise-content {
+                padding: 30px 20px;
+            }
+
+            .final-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .final-buttons button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) and (max-height: 640px) {
+            .final-cover {
+                width: 48%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <main class="final-page">
 
-        <!-- FLOATING HEARTS -->
-
-        <span class="final-heart fh1">♡</span>
-        <span class="final-heart fh2">♥</span>
-        <span class="final-heart fh3">♡</span>
-        <span class="final-heart fh4">✦</span>
-        <span class="final-heart fh5">♡</span>
-
-
         <!-- =========================
-             OPENING
+             MUSIC
         ========================= -->
 
-        <section class="final-opening" id="finalOpening">
+        <section class="final-music" id="finalMusic">
 
-            <p class="final-small">
-                you made it this far...
-            </p>
+            <div class="final-heart">♡</div>
 
-            <h1>
-                one last<br>
-                <span>thing ♡</span>
-            </h1>
+            <h1>Sebelum lanjutt...</h1>
 
-            <div class="envelope-area">
+            <p>putar lagu ini dulu yaa kakak.</p>
 
-                <div class="final-envelope" id="finalEnvelope">
+            <div class="final-music-card">
 
-                    <div class="envelope-back"></div>
+                <img
+                    src="music/cover1.jpeg"
+                    alt="cover lagu"
+                    class="final-cover">
 
-                    <div class="envelope-paper">
-                        <span>for you ♡</span>
-                    </div>
-
-                    <div class="envelope-front"></div>
-
-                    <div class="envelope-flap"></div>
-
-                    <div class="envelope-heart">
-                        ♡
-                    </div>
-
+                <div class="final-song-info">
+                    <div class="final-song-name">Shape of My Heart</div>
+                    <div class="final-song-artist">Backstreet Boys</div>
                 </div>
+
+                <div class="final-progress">
+                    <div class="final-progress-fill" id="finalProgressFill"></div>
+                </div>
+
+                <div class="final-time">
+                    <span id="finalCurrentTime">0:00</span>
+                    <span id="finalDuration">0:00</span>
+                </div>
+
+                <audio id="finalAudio" src="music/shapeofmyheart.mp3"></audio>
+
+                <button id="finalPlayButton" type="button">▶ putar lagu</button>
 
             </div>
 
-            <button class="open-final-button" onclick="openFinalLetter()">
-                open the letter ♡
+            <button
+                class="final-next-button"
+                id="finalNextButton"
+                type="button"
+                onclick="showFinalOpening()">
+                lanjut ♡
             </button>
 
         </section>
 
 
         <!-- =========================
-             LETTER
+             AREA SURAT (di bawah kotak lagu)
         ========================= -->
 
-        <section class="final-letter-section" id="finalLetter">
+        <div class="final-stage" id="finalStage">
 
-            <div class="final-letter">
+            <!-- OPENING ENVELOPE -->
 
-                <div class="letter-top-heart">
-                    ♡
+            <section class="final-opening" id="finalOpening">
+
+                <span class="final-heart fh1">♡</span>
+                <span class="final-heart fh2">♥</span>
+                <span class="final-heart fh3">♡</span>
+                <span class="final-heart fh4">✦</span>
+                <span class="final-heart fh5">♡</span>
+
+                <p class="final-small">kalau kakakk sudah sampai sini...</p>
+
+                <h1>
+                    adekk punya satu hal<br>
+                    <span>terakhir untuk kakakk </span>
+                </h1>
+
+                <div class="envelope-area">
+                    <div class="final-envelope" id="finalEnvelope">
+                        <div class="envelope-back"></div>
+                        <div class="envelope-paper"><span>for you ♡</span></div>
+                        <div class="envelope-front"></div>
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-heart">♡</div>
+                    </div>
                 </div>
-
-                <p class="letter-label">
-                    a little letter for you
-                </p>
-
-                <h2>
-                    for you, ♡
-                </h2>
-
-                <div class="final-line"></div>
-
-                <div class="typed-letter" id="typedLetter"></div>
-
-                <p class="letter-sign">
-                    — Feli ♡
-                </p>
 
                 <button
-                    class="surprise-button"
-                    id="surpriseButton"
-                    onclick="showSurprise()">
-                    wait... there's one more thing ♡
+                    class="open-final-button"
+                    type="button"
+                    onclick="openFinalLetter()">
+                    Buka surat ♡
                 </button>
 
-            </div>
-
-        </section>
+            </section>
 
 
-        <!-- =========================
-             SURPRISE
-        ========================= -->
+            <!-- LETTER -->
 
-        <section class="final-surprise" id="finalSurprise">
+            <section class="final-letter-section" id="finalLetter">
 
-            <div class="surprise-content">
+                <div class="final-letter">
 
-                <div class="big-surprise-heart">
-                    ♡
-                </div>
+                    <div class="letter-top-heart">♡</div>
 
-                <h2>
-                    thank you for being<br>
-                    part of this little story.
-                </h2>
+                    <p class="letter-label">Surat kecil untuk kakakk</p>
 
-                <p>
-                    I hope this tiny website
-                    gives you a little smile
-                    whenever you remember it.
-                </p>
+                    <h2>untuk kakakk ♡</h2>
 
-                <div class="surprise-name">
-                    — Feli ♡
-                </div>
+                    <div class="final-line"></div>
 
-                <div class="final-buttons">
+                    <div class="typed-letter" id="typedLetter"></div>
 
-                    <button onclick="location.reload()">
-                        read it again ♡
-                    </button>
+                    <p class="letter-sign">— Feli ♡</p>
 
-                    <button onclick="window.location.href='index.html'">
-                        start from the beginning
+                    <button
+                        class="surprise-button"
+                        id="surpriseButton"
+                        type="button"
+                        onclick="showSurprise()">
+                      eiyyaa ternyata masih ada satu kejutan lagi
                     </button>
 
                 </div>
 
-            </div>
-
-        </section>
+            </section>
 
 
-        <!-- HEARTS GENERATED BY JS -->
+            <!-- SURPRISE -->
+
+            <section class="final-surprise" id="finalSurprise">
+
+                <div class="surprise-content">
+
+                    <div class="big-surprise-heart">♡</div>
+
+                    <h2>
+                        Terima kasih untuk semuanya<br>
+                        Kakakk
+                    </h2>
+
+                    <p>
+                         Semoga kakak selalu ingat
+                          kalau pernah ada cerita kecil
+                          seperti ini dari adekk.
+                    </p>
+
+                    <div class="surprise-name">— Fely ♡</div>
+
+                    <div class="final-buttons">
+                        <button type="button" onclick="location.reload()">
+                            baca lagi 
+                        </button>
+
+                        <button type="button" onclick="window.location.href='index.html'">
+                           mulai dari awal 
+                        </button>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- HEARTS -->
 
         <div class="heart-container" id="heartContainer"></div>
 
@@ -165,66 +828,113 @@
 
     <script>
 
-        const letterText = `
-Hi...
+        /* =========================
+           LETTER TEXT
+        ========================= */
 
-Thank you for making it all the way here.
+        const letterText = `Haiii...
 
-I made this little website because
-there were so many little things
-I wanted to put into words.
+Terima kasih sudah sampai sejauh ini, kakakk..
 
-Maybe some of them are simple,
-maybe some are a little silly,
-but I hope you know that
-every part of this was made sincerely.
+Adekk membuat website kecil ini karena
+ada banyak hal kecil yang ingin
+adekk sampaikan lewat kata-kata.
 
-I am really glad that I got to know you
-and share all those little moments
-and memories with you.
+Mungkin beberapa di antaranya sederhana,
+mungkin juga sedikit konyol,
+tapi adekk harap kakak tahu bahwa
+semua bagian dari website ini
+dibuat dengan sangat sangat tulus.
 
-Whatever happens next,
-I hope you always remember
-that you are someone worth appreciating.
+Adekk senang bisa mengenal kakakk
+dan berbagi begitu banyak momen kecil
+serta kenangan bersama kakakk.
 
-Thank you for being you. ♡
-`;
+Apa pun yang terjadi setelah ini,
+adekk harap kakakk selalu ingat
+bahwa kakakk adalah seseorang
+yang sangat berarti bagi adekk.
 
-
-        function openFinalLetter() {
-
-            const opening =
-                document.getElementById("finalOpening");
-
-            const envelope =
-                document.getElementById("finalEnvelope");
-
-            envelope.classList.add("open");
-
-            setTimeout(() => {
-
-                opening.classList.add("hide");
-
-            }, 900);
+Terima kasih sudah menjadi orang 
+yang begitu berarti dalam cerita adekk ♡`;
 
 
-            setTimeout(() => {
+        /* =========================
+           PINDAH ANTAR BAGIAN
+           Musik tetap di atas; amplop, surat, dan penutup
+           bergantian di slot yang sama di bawahnya.
+        ========================= */
 
-                document
-                    .getElementById("finalLetter")
-                    .classList.add("show");
+        const stage = document.getElementById("finalStage");
+        const opening = document.getElementById("finalOpening");
+        const letter = document.getElementById("finalLetter");
+        const surprise = document.getElementById("finalSurprise");
 
-                typeLetter();
+        function showOnly(section) {
 
-            }, 1300);
+            [opening, letter, surprise].forEach(function(s) {
+                s.classList.remove("show");
+            });
+
+            section.classList.add("show");
+
+            setTimeout(function() {
+                section.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }, 100);
 
         }
 
+
+        /* =========================
+           SHOW ENVELOPE
+        ========================= */
+
+        function showFinalOpening() {
+
+            stage.classList.add("show");
+
+            document
+                .getElementById("finalNextButton")
+                .classList.add("is-used");
+
+            showOnly(opening);
+
+        }
+
+
+        /* =========================
+           OPEN LETTER
+        ========================= */
+
+        function openFinalLetter() {
+
+            document
+                .getElementById("finalEnvelope")
+                .classList.add("open");
+
+            setTimeout(function() {
+
+                showOnly(letter);
+                typeLetter();
+
+            }, 1400);
+
+        }
+
+
+        /* =========================
+           TYPE LETTER
+        ========================= */
 
         function typeLetter() {
 
             const container =
                 document.getElementById("typedLetter");
+
+            container.textContent = "";
 
             let index = 0;
 
@@ -235,9 +945,17 @@ Thank you for being you. ♡
                     container.textContent +=
                         letterText.charAt(index);
 
+                    container.scrollTop = container.scrollHeight;
+
                     index++;
 
                     setTimeout(type, 25);
+
+                } else {
+
+                    document
+                        .getElementById("surpriseButton")
+                        .classList.add("ready");
 
                 }
 
@@ -248,54 +966,49 @@ Thank you for being you. ♡
         }
 
 
+        /* =========================
+           SURPRISE
+        ========================= */
+
         function showSurprise() {
 
-            document
-                .getElementById("finalLetter")
-                .classList.add("hide");
+            showOnly(surprise);
 
-            setTimeout(() => {
-
-                document
-                    .getElementById("finalSurprise")
-                    .classList.add("show");
-
-                createHearts();
-
-            }, 700);
+            createHearts();
 
         }
 
+
+        /* =========================
+           FALLING HEARTS
+        ========================= */
 
         function createHearts() {
 
             const container =
                 document.getElementById("heartContainer");
 
+            container.innerHTML = "";
+
             const symbols = ["♡", "♥", "✦", "♡"];
 
             for (let i = 0; i < 35; i++) {
 
-                const heart =
-                    document.createElement("span");
+                const heart = document.createElement("span");
 
                 heart.className = "falling-heart";
 
                 heart.textContent =
-                    symbols[
-                        Math.floor(
-                            Math.random() * symbols.length
-                        )
-                    ];
+                    symbols[Math.floor(Math.random() * symbols.length)];
 
                 heart.style.left =
                     Math.random() * 100 + "%";
 
                 heart.style.animationDuration =
-                    (3 + Math.random() * 4) + "s";
+                    (5 + Math.random() * 5) + "s";
 
                 heart.style.animationDelay =
-                    Math.random() * 1.5 + "s";
+                    (Math.random() * 6) + "s";
 
                 heart.style.fontSize =
                     (10 + Math.random() * 16) + "px";
@@ -305,6 +1018,96 @@ Thank you for being you. ♡
             }
 
         }
+
+
+        /* =========================
+           MUSIC
+        ========================= */
+
+        const finalAudio =
+            document.getElementById("finalAudio");
+
+        const finalPlayButton =
+            document.getElementById("finalPlayButton");
+
+        finalPlayButton.addEventListener("click", function() {
+
+            if (finalAudio.paused) {
+
+                finalAudio.play().catch(function() {});
+
+                finalPlayButton.textContent = "❚❚ pause";
+
+            } else {
+
+                finalAudio.pause();
+
+                finalPlayButton.textContent = "▶ putar lagu";
+
+            }
+
+        });
+
+        finalAudio.addEventListener("ended", function() {
+            finalPlayButton.textContent = "▶ putar lagu";
+        });
+
+
+        /* =========================
+           MUSIC PROGRESS
+        ========================= */
+
+        const finalProgressFill =
+            document.getElementById("finalProgressFill");
+
+        const finalCurrentTime =
+            document.getElementById("finalCurrentTime");
+
+        const finalDuration =
+            document.getElementById("finalDuration");
+
+
+        function formatFinalTime(seconds) {
+
+            if (isNaN(seconds)) {
+                return "0:00";
+            }
+
+            const minutes = Math.floor(seconds / 60);
+
+            const secs =
+                Math.floor(seconds % 60)
+                    .toString()
+                    .padStart(2, "0");
+
+            return minutes + ":" + secs;
+
+        }
+
+
+        finalAudio.addEventListener("loadedmetadata", function() {
+
+            finalDuration.textContent =
+                formatFinalTime(finalAudio.duration);
+
+        });
+
+
+        finalAudio.addEventListener("timeupdate", function() {
+
+            if (!finalAudio.duration) {
+                return;
+            }
+
+            const progress =
+                (finalAudio.currentTime / finalAudio.duration) * 100;
+
+            finalProgressFill.style.width = progress + "%";
+
+            finalCurrentTime.textContent =
+                formatFinalTime(finalAudio.currentTime);
+
+        });
 
     </script>
 

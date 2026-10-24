@@ -13,6 +13,27 @@
 </head>
 
 <body>
+    <div class="loading-screen" id="loadingScreen">
+
+    <div class="loading-content">
+
+        <div class="loading-heart">♡</div>
+
+        <p class="loading-text">
+            Loading web...
+        </p>
+
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+
+        <p class="loading-percent" id="loadingPercent">
+            0%
+        </p>
+
+    </div>
+
+</div>
 
     <main class="opening">
 
@@ -52,16 +73,152 @@
 
             </div>
 
-            <!-- Tombol -->
-            <button id="openButton">
-                open it ♡
-            </button>
+            <p class="opening-question">
+    apakah kakak mau membuka? ♡
+</p>
+
+            <div class="opening-buttons">
+
+    <button id="openButton" class="yes-button">
+        mauuuu
+    </button>
+
+    <button id="noButton" class="no-button">
+        tidaa mauu ah
+    </button>
+
+</div>
+
+<div class="no-bubble" id="noBubble">
+    yahh kokk tidaa mauu .⁠·⁠´⁠¯⁠`⁠(⁠>⁠▂⁠<⁠)⁠´⁠¯⁠`⁠·⁠.
+</div>
 
         </section>
 
     </main>
 
     <script src="script.js"></script>
+    <script>
+const tinyGameItems =
+    document.querySelectorAll(".game-item");
+
+tinyGameItems.forEach(function(item) {
+
+    item.addEventListener("click", function(event) {
+
+        const emoji = item.textContent.trim();
+
+        // posisi emoji yang diklik
+        const rect = item.getBoundingClientRect();
+
+        const centerX =
+            rect.left + rect.width / 2;
+
+        const centerY =
+            rect.top + rect.height / 2;
+
+        // buat banyak emoji
+        for (let i = 0; i < 14; i++) {
+
+            const particle =
+                document.createElement("span");
+
+            particle.classList.add("emoji-particle");
+
+            particle.textContent = emoji;
+
+            particle.style.left =
+                centerX + "px";
+
+            particle.style.top =
+                centerY + "px";
+
+            const moveX =
+                (Math.random() - 0.5) * 180;
+
+            const moveY =
+                (Math.random() - 0.5) * 180;
+
+            const rotate =
+                (Math.random() - 0.5) * 180;
+
+            particle.style.setProperty(
+                "--move-x",
+                moveX + "px"
+            );
+
+            particle.style.setProperty(
+                "--move-y",
+                moveY + "px"
+            );
+
+            particle.style.setProperty(
+                "--rotate",
+                rotate + "deg"
+            );
+
+            document.body.appendChild(particle);
+
+            setTimeout(function() {
+                particle.remove();
+            }, 900);
+        }
+
+    });
+
+});
+<script>
+const tinyGameItems = document.querySelectorAll(".game-item");
+
+tinyGameItems.forEach(function(item) {
+
+    item.addEventListener("click", function() {
+
+        const emoji = item.textContent.trim();
+        const rect = item.getBoundingClientRect();
+
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        for (let i = 0; i < 14; i++) {
+
+            const particle = document.createElement("span");
+
+            particle.className = "emoji-particle";
+            particle.textContent = emoji;
+
+            particle.style.left = centerX + "px";
+            particle.style.top = centerY + "px";
+
+            particle.style.setProperty(
+                "--move-x",
+                ((Math.random() - 0.5) * 200) + "px"
+            );
+
+            particle.style.setProperty(
+                "--move-y",
+                ((Math.random() - 0.5) * 200) + "px"
+            );
+
+            particle.style.setProperty(
+                "--rotate",
+                ((Math.random() - 0.5) * 360) + "deg"
+            );
+
+            document.body.appendChild(particle);
+
+            setTimeout(function() {
+                particle.remove();
+            }, 900);
+
+        }
+
+    });
+
+});
+
+</script>
+
 
 </body>
 </html>

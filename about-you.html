@@ -12,6 +12,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* geser antar lagu */
+
+        .music-slides {
+            box-sizing: border-box;
+            display: flex;
+            align-items: flex-start;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            overscroll-behavior-x: contain;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            /* ruang agar bayangan kartu tidak terpotong */
+            padding: 16px 16px 30px;
+            margin: -16px -16px -30px;
+            transition: height 0.35s ease;
+        }
+
+        .music-slides::-webkit-scrollbar {
+            display: none;
+        }
+
+        .music-slide {
+            flex: 0 0 100%;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+        }
+
+        .song-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .song-dot {
+            position: relative;
+            width: 8px;
+            height: 8px;
+            padding: 0;
+            border: none;
+            border-radius: 999px;
+            background: rgba(214, 105, 145, 0.25);
+            cursor: pointer;
+            transition: width 0.3s, background 0.3s;
+        }
+
+        .song-dot::after {
+            content: "";
+            position: absolute;
+            inset: -14px -6px;
+        }
+
+        .song-dot.active {
+            width: 20px;
+            background: #f39abb;
+        }
+
+        .song-swipe-hint {
+            margin-top: 8px;
+            text-align: center;
+            font-size: 11px;
+            color: #b98a9b;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,19 +97,167 @@
 
             <!-- OPENING -->
 
-            <p class="about-you-small">
-                a little page about you
-            </p>
+          
 
             <h1>
-                this page is<br>
-                <span>about you ♡</span>
+                Sedikit halaman<br>
+                <span>tentang kakakk♡</span>
             </h1>
 
             <p class="about-you-intro">
-                because somehow, this little website
-                wouldn't feel complete without you.
+                soalnya nggak mungkin website ini<br> lengkap
+                 kalau tidaa ada kakakkk di dalamnya ⁠˶⁠ᵔ⁠ ᵕ⁠ ᵔ⁠˶⁠
             </p>
+             <!-- MUSIC -->
+              <div class="music-section">
+
+    <p class="section-label">
+       Lagu ini ngegambarin kakakk bgtt dari sudut pandang akuu ๑⁠>⁠ᴗ⁠<⁠๑⁠
+    </p>
+    <div class="music-hearts" id="musicHearts"></div>
+    <div class="music-slides" id="musicSlides">
+
+    <!-- LAGU 1 (dengan lirik) -->
+    <div class="music-slide">
+
+    <div class="music-player-new">
+      
+
+        <div class="music-cover">
+            <img src="music/cover.webp" alt="Cover lagu">
+            <div class="cover-heart">♡</div>
+        </div>
+
+        <div class="music-details">
+
+            <p class="song-label">
+               Lagu buat kakakk ♡
+            </p>
+
+            <h2 class="song-title-new">
+                you!
+            </h2>
+
+            <p class="song-artist-new">
+              Lany 
+            </p>
+
+            <div class="music-progress">
+                <div class="music-progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="music-time">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+
+            <div class="music-controls-new">
+
+                <button class="music-play" id="playButton">
+                    ▶
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <audio id="mySong">
+        <source src="music/you!.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="lyrics-box">
+
+    <div class="lyrics-header">
+        <span>♡</span>
+        <p>little lyrics</p>
+        <span>♡</span>
+    </div>
+
+    <div class="lyrics-content" id="lyricsContent">
+
+        <p class="lyrics-line">you're the one i needed this whole time</p>
+    <p class="lyrics-line">you're the sun to the moon</p>
+    <p class="lyrics-line">you're my ocean painted blue</p>
+    <p class="lyrics-line">you, i'm nothing without you (without you) (without you)</p>
+    <p class="lyrics-line">you're the light in the dark</p>
+    <p class="lyrics-line">you're the arrow through my heart</p>
+    <p class="lyrics-line">you, i'm nothing without you (oh-oh)</p>
+    <p class="lyrics-line">i'm nothing without you (oh-oh)</p>
+    <p class="lyrics-line">i'm nothing without you (oh-oh)</p>
+    <p class="lyrics-line">i'm nothing without you</p>
+    
+    </div>
+
+</div>
+
+</div>
+    <!-- /LAGU 1 -->
+
+
+    <!-- LAGU 2 (tanpa lirik) -->
+    <!-- GANTI: judul, artis, cover, dan file audio di bawah ini -->
+    <div class="music-slide">
+
+        <div class="music-player-new">
+
+            <div class="music-cover" id="musicCover2">
+                <img src="music/cover2.jpeg" alt="Cover lagu kedua">
+                <div class="cover-heart">♡</div>
+            </div>
+
+            <div class="music-details">
+
+                <p class="song-label">
+                    Kalau lagu ini kayak gambarin keadaan kita gitu gak sii kakk
+                </p>
+
+                <h2 class="song-title-new">
+                    Berapa kali kita akan saling memaafkan
+                </h2>
+
+                <p class="song-artist-new">
+                    pamungkas
+                </p>
+
+                <div class="music-progress">
+                    <div class="music-progress-fill" id="progressFill2"></div>
+                </div>
+
+                <div class="music-time">
+                    <span id="currentTime2">0:00</span>
+                    <span id="duration2">0:47</span>
+                </div>
+
+                <div class="music-controls-new">
+                    <button class="music-play" id="playButton2">
+                        ▶
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <audio id="mySong2">
+            <source src="music/maaf.mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+    <!-- /LAGU 2 -->
+
+    </div>
+    <!-- /music-slides -->
+
+    <div class="song-dots">
+        <button class="song-dot active" type="button" aria-label="lagu 1"></button>
+        <button class="song-dot" type="button" aria-label="lagu 2"></button>
+    </div>
+
+    <p class="song-swipe-hint">geser untuk lagu berikutnya ♡</p>
+
+</div>
 
 
             <!-- MAIN PHOTO -->
@@ -59,10 +273,118 @@
                 </div>
 
                 <p class="photo-caption">
-                    that's you ♡
+                    Sosok asli yang ada di lagu "you!" ♡
                 </p>
 
             </div>
+
+            <section class="character-section">
+
+    <p class="section-label">sedikit tentang kakakk ♡</p>
+    <h2 class="character-heading">Kartu Karakter milik Kakak</h2>
+
+    <p class="character-hint">
+        Ketuk kartu untuk melihat ♡
+    </p>
+
+    <div class="character-card" id="characterCard">
+
+        <div class="character-card-inner">
+
+            <!-- DEPAN -->
+            <div class="character-front">
+
+                <div class="character-number">NO. 01 ♡</div>
+
+                <div class="character-photo">
+                    <img src="images/foto-dia1.jpg" alt="Your photo">
+                </div>
+
+                <div class="character-front-info">
+                    <p class="character-small">limited edition</p>
+
+                    <h2>Kakakk jayy</h2>
+
+                    <p class="character-type">
+                        ★ special character ★
+                    </p>
+                </div>
+
+                <div class="character-tap">
+                    Ketuk untuk menampilkan ♡
+                </div>
+
+            </div>
+
+
+            <!-- BELAKANG -->
+            <div class="character-back">
+
+                <p class="character-small">
+                    character profile ♡
+                </p>
+
+                <h2>Fajar Rachman</h2>
+
+                <div class="character-divider"></div>
+
+                <div class="character-stats">
+
+                    <div>
+                        <span>Kebaikan</span>
+                        <strong>★★★★★</strong>
+                    </div>
+
+                    <div>
+                        <span>humor</span>
+                        <strong>★★★★★</strong>
+                    </div>
+
+                    <div>
+                        <span>keunikan</span>
+                        <strong>★★★★☆</strong>
+                    </div>
+
+                    <div>
+                        <span>Kesabaran</span>
+                        <strong>★★★★★</strong>
+                    </div>
+
+                    <div>
+                        <span>Kecepatan membalas</span>
+                        <strong>★★★★☆</strong>
+                    </div>
+
+                </div>
+
+                <div class="character-special">
+                    <span>✦ Kekuatan spesial ✦</span>
+                    <p>Selalu membuat adekk tersenyum (⌒‿⌒)</p>
+                </div>
+
+                <div class="character-extra">
+                    <div>
+                        <span>efek samping</span>
+                        <p>bikin adek senyum' sendiri (⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄)</p>
+                    </div>
+
+                    <div>
+                        <span>kebiasaan</span>
+                        <p>sering bikin adek kangen (˶>///<˶)</p>
+                    </div>
+                </div>
+
+                <p class="character-return">
+                    Ketuk lagi untuk kembali ♡
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
             <!-- LITTLE THINGS -->
@@ -70,29 +392,29 @@
             <div class="little-section">
 
                 <p class="section-label">
-                    little things about you
+                  Hal-hal kecil tentang kakakk
                 </p>
 
                 <h2>
-                    things I remember ♡
+                    Yang selalu adekk ingat ♡
                 </h2>
 
                 <div class="memory-paper">
 
                     <p>
-                        ✦ the little things you do
+                        ✦ cara kakak bikin adekk merasa nyaman jadi diri sendiri.
                     </p>
 
                     <p>
-                        ♡ the things you like
+                        ♡ perhatian kecil kakak yang mungkin kakak anggap biasa, tapi selalu adekk inget.
                     </p>
 
                     <p>
-                        ☁ the random things you say
+                        ☁ cara kakak selalu minta maaf, bahkan untuk hal kecil sekalipun.
                     </p>
 
                     <p>
-                        ✦ the moments that somehow stay
+                        ✦ kata-kata sederhana dari kakak yang bikin hari adekk jadi lebih baik.
                     </p>
 
                 </div>
@@ -100,91 +422,35 @@
             </div>
 
 
-            <!-- CHAT SECTION -->
+            <section class="catch-heart-section">
 
-            <div class="chat-section">
+    <p class="section-label">main game yuks, namanyaa</p>
 
-                <p class="section-label">
-                    little pieces of our conversations
-                </p>
+    <h2 class="catch-title">
+        catch my heart!
+    </h2>
 
-                <h2>
-                    some chats ♡
-                </h2>
+    <p class="catch-hint">
+        jangan sampai hatinya jatuh yaa.. 
+    </p>
 
-                <p class="chat-intro">
-                    just a few conversations
-                    that I wanted to keep here.
-                </p>
+    <div class="catch-game" id="catchGame">
 
-                <div class="chat-gallery">
+        <div class="catch-score">
+            ♡ <span id="catchScore">0</span> / 10
+        </div>
 
-                    <div class="chat-paper chat-one">
-                        <img src="images/chat1.jpg" alt="Screenshot chat">
-                    </div>
+        <div class="heart-basket" id="heartBasket">
+            🧺
+        </div>
 
-                    <div class="chat-paper chat-two">
-                        <img src="images/chat2.jpg" alt="Screenshot chat">
-                    </div>
+    </div>
 
-                    <div class="chat-paper chat-three">
-                        <img src="images/chat3.jpg" alt="Screenshot chat">
-                    </div>
+    <p class="catch-instruction">
+        geser keranjangnya ke kiri dan kanan 
+    </p>
 
-                </div>
-
-            </div>
-
-
-            <!-- MUSIC -->
-
-            <div class="music-section">
-
-                <p class="section-label">
-                    one little song
-                </p>
-
-                <h2>
-                    press play ♡
-                </h2>
-
-                <div class="music-player">
-
-                    <div class="music-disc">
-                        <div class="disc-center">♡</div>
-                    </div>
-
-                    <div class="music-info">
-
-                        <p class="song-title">
-                            your song
-                        </p>
-
-                        <p class="song-artist">
-                            for you ♡
-                        </p>
-
-                        <div class="music-line">
-                            <span></span>
-                        </div>
-
-                        <div class="music-controls">
-
-                            <button id="playButton">
-                                ▶
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <audio id="mySong">
-                    <source src="music/song.mp3" type="audio/mpeg">
-                </audio>
-
-            </div>
+</section>
 
 
             <!-- CLOSING -->
@@ -196,9 +462,8 @@
                 </div>
 
                 <p>
-                    and somehow, all these little things
-                    made you someone worth writing
-                    a whole page about.
+                     dan tanpa sadar, hal-hal kecil tentang<br>
+                      kakak sudah jadi bagian dari cerita ini (⁠ ˃̣̣̥⌓˂̣̣̥⁠)♡
                 </p>
 
             </div>
@@ -208,49 +473,618 @@
 
             <button class="next-button"
                 onclick="window.location.href='final.html'">
-                one last page ♡
+                Satu halaman terakhir ♡
             </button>
 
         </section>
 
     </main>
-
-
     <script>
+    const playButton = document.getElementById("playButton");
+    const mySong = document.getElementById("mySong");
 
-        const playButton =
-            document.getElementById("playButton");
+    const progressFill =
+        document.getElementById("progressFill");
 
-        const mySong =
-            document.getElementById("mySong");
+    const currentTime =
+        document.getElementById("currentTime");
+
+    const duration =
+        document.getElementById("duration");
+        const lyricsLines =
+    document.querySelectorAll(".lyrics-line");
+
+const lyricTimes = [
+    0,
+    4,
+    10,
+    15,
+    26,
+    30,
+    35,
+    44,
+    48,
+    53
+];
+
+let activeLyric = -1;
+
+const musicHearts =
+    document.getElementById("musicHearts");
+
+let heartTimer;
 
 
-        playButton.addEventListener("click", function () {
+function createMusicHeart() {
 
-            if (mySong.paused) {
+    const heart = document.createElement("span");
 
-                mySong.play();
+    heart.className = "music-heart";
+    heart.textContent = "♡";
 
-                playButton.textContent = "❚❚";
+    // posisi random dari seluruh layar
+    heart.style.left =
+        Math.random() * 100 + "%";
 
-            } else {
+    // ukuran random
+    heart.style.fontSize =
+        (10 + Math.random() * 22) + "px";
 
-                mySong.pause();
+    // kecepatan random
+    heart.style.animationDuration =
+        (3 + Math.random() * 3) + "s";
 
-                playButton.textContent = "▶";
+    // sedikit transparan random
+    heart.style.opacity =
+        0.4 + Math.random() * 0.5;
 
+    musicHearts.appendChild(heart);
+
+    setTimeout(function () {
+        heart.remove();
+    }, 6500);
+}
+
+
+    function formatTime(seconds) {
+
+        const minutes =
+            Math.floor(seconds / 60);
+
+        const secs =
+            Math.floor(seconds % 60)
+                .toString()
+                .padStart(2, "0");
+
+        return minutes + ":" + secs;
+
+    }
+
+
+    playButton.addEventListener("click", function () {
+
+       if (mySong.paused) {
+    stopSong2();
+    mySong.play();
+    playButton.textContent = "❚❚";
+
+    document.querySelector(".music-cover").classList.add("playing");
+
+    createMusicHeart();
+    heartTimer = setInterval(createMusicHeart, 900);
+
+} else {
+    mySong.pause();
+    playButton.textContent = "▶";
+
+    document.querySelector(".music-cover").classList.remove("playing");
+
+    clearInterval(heartTimer);
+}
+    });
+
+
+    mySong.addEventListener("loadedmetadata", function () {
+
+        duration.textContent =
+            formatTime(mySong.duration);
+
+    });
+
+
+    mySong.addEventListener("timeupdate", function () {
+        let newActiveLyric = 0;
+
+for (let i = 0; i < lyricTimes.length; i++) {
+    if (mySong.currentTime >= lyricTimes[i]) {
+        newActiveLyric = i;
+    }
+}
+
+if (newActiveLyric !== activeLyric) {
+
+    activeLyric = newActiveLyric;
+
+    lyricsLines.forEach(function (line, index) {
+        line.classList.toggle(
+            "active",
+            index === activeLyric
+        );
+    });
+
+    if (lyricsLines[activeLyric] && currentSlide === 0) {
+        lyricsLines[activeLyric].scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
+}
+
+        const progress =
+            (mySong.currentTime / mySong.duration) * 100;
+
+        progressFill.style.width =
+            progress + "%";
+
+        currentTime.textContent =
+            formatTime(mySong.currentTime);
+
+    });
+
+
+    mySong.addEventListener("ended", function () {
+
+        playButton.textContent = "▶";
+
+        progressFill.style.width = "0%";
+
+        currentTime.textContent = "0:00";
+
+    });
+
+    const characterCard =
+    document.getElementById("characterCard");
+
+characterCard.addEventListener("click", function () {
+    characterCard.classList.toggle("flipped");
+});
+
+const catchGame = document.getElementById("catchGame");
+const heartBasket = document.getElementById("heartBasket");
+
+let catchScore = 0;
+let basketDragging = false;
+let heartInterval = null;
+let gameStarted = false;
+
+const catchScoreElement =
+    document.getElementById("catchScore");
+
+
+/* =========================
+   GERAK KERANJANG
+========================= */
+
+heartBasket.addEventListener("pointerdown", function(event) {
+
+    basketDragging = true;
+
+    heartBasket.setPointerCapture(event.pointerId);
+
+    // mulai game saat keranjang disentuh
+    startHeartGame();
+});
+
+
+heartBasket.addEventListener("pointermove", function(event) {
+
+    if (!basketDragging) return;
+
+    const gameRect =
+        catchGame.getBoundingClientRect();
+
+    let newX =
+        event.clientX - gameRect.left;
+
+    const halfBasket =
+        heartBasket.offsetWidth / 2;
+
+    newX = Math.max(
+        halfBasket,
+        Math.min(
+            gameRect.width - halfBasket,
+            newX
+        )
+    );
+
+    heartBasket.style.left =
+        newX + "px";
+
+    heartBasket.style.transform =
+        "translateX(-50%)";
+
+});
+
+
+heartBasket.addEventListener("pointerup", function() {
+    basketDragging = false;
+});
+
+
+heartBasket.addEventListener("pointercancel", function() {
+    basketDragging = false;
+});
+
+
+/* =========================
+   MULAI GAME
+========================= */
+
+function startHeartGame() {
+
+    if (gameStarted) return;
+
+    gameStarted = true;
+
+    heartInterval = setInterval(function() {
+
+        if (catchScore >= 10) {
+            stopHeartGame();
+            return;
+        }
+
+        createFallingHeart();
+
+    }, 1000);
+}
+
+
+/* =========================
+   BERHENTIKAN GAME
+========================= */
+
+function stopHeartGame() {
+
+    clearInterval(heartInterval);
+
+    heartInterval = null;
+
+    document
+        .querySelectorAll(".falling-heart")
+        .forEach(function(heart) {
+            heart.remove();
+        });
+}
+
+
+/* =========================
+   HATI JATUH
+========================= */
+
+function createFallingHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "falling-heart";
+
+    heart.textContent =
+        "♡";
+
+    const maxX =
+        catchGame.clientWidth - 35;
+
+    const randomX =
+        Math.random() * maxX;
+
+    heart.style.left =
+        randomX + "px";
+
+    catchGame.appendChild(heart);
+
+
+    function checkCatch() {
+
+        // kalau game sudah selesai
+        if (catchScore >= 10) {
+            heart.remove();
+            return;
+        }
+
+        const heartRect =
+            heart.getBoundingClientRect();
+
+        const basketRect =
+            heartBasket.getBoundingClientRect();
+
+        const caught =
+            heartRect.bottom >= basketRect.top &&
+            heartRect.left < basketRect.right &&
+            heartRect.right > basketRect.left;
+
+
+        if (caught) {
+
+            catchScore++;
+
+            catchScoreElement.textContent =
+                catchScore;
+
+
+            if (catchScore >= 10) {
+
+                stopHeartGame();
+
+                document
+                    .getElementById("catchWinOverlay")
+                    .classList.add("show");
+
+                createWinLoves();
             }
 
+
+            heart.remove();
+
+            return;
+        }
+
+
+        if (
+            heartRect.top >
+            catchGame.getBoundingClientRect().bottom
+        ) {
+
+            heart.remove();
+
+            return;
+        }
+
+
+        requestAnimationFrame(checkCatch);
+    }
+
+
+    requestAnimationFrame(checkCatch);
+}
+
+
+/* =========================
+   LOVE EFFECT
+========================= */
+
+function createWinLoves() {
+
+    const overlay =
+        document.getElementById("catchWinOverlay");
+
+    for (let i = 0; i < 18; i++) {
+
+        const love =
+            document.createElement("span");
+
+        love.className =
+            "win-love";
+
+        love.textContent =
+            "♡";
+
+        love.style.left =
+            (Math.random() * 100) + "%";
+
+        love.style.top =
+            (Math.random() * 100) + "%";
+
+        love.style.setProperty(
+            "--love-x",
+            ((Math.random() - 0.5) * 80) + "px"
+        );
+
+        love.style.setProperty(
+            "--love-y",
+            ((Math.random() - 0.5) * 100) + "px"
+        );
+
+        love.style.animationDelay =
+            (Math.random() * 0.3) + "s";
+
+        overlay.appendChild(love);
+
+        setTimeout(function() {
+            love.remove();
+        }, 1300);
+    }
+}
+
+
+/* =========================
+   MAIN LAGI
+========================= */
+
+function restartHeartGame() {
+
+    catchScore = 0;
+
+    catchScoreElement.textContent = "0";
+
+    document
+        .getElementById("catchWinOverlay")
+        .classList.remove("show");
+
+    gameStarted = false;
+
+    if (heartInterval) {
+        clearInterval(heartInterval);
+        heartInterval = null;
+    }
+
+    document
+        .querySelectorAll(".falling-heart")
+        .forEach(function(heart) {
+            heart.remove();
+        });
+}
+
+/* =========================
+   LAGU KE-2 (tanpa lirik)
+========================= */
+
+const mySong2 = document.getElementById("mySong2");
+const playButton2 = document.getElementById("playButton2");
+const progressFill2 = document.getElementById("progressFill2");
+const currentTime2 = document.getElementById("currentTime2");
+const duration2 = document.getElementById("duration2");
+const musicCover2 = document.getElementById("musicCover2");
+
+let heartTimer2;
+
+function stopSong1() {
+    mySong.pause();
+    playButton.textContent = "▶";
+    document.querySelector(".music-cover").classList.remove("playing");
+    clearInterval(heartTimer);
+}
+
+function stopSong2() {
+    mySong2.pause();
+    playButton2.textContent = "▶";
+    musicCover2.classList.remove("playing");
+    clearInterval(heartTimer2);
+}
+
+playButton2.addEventListener("click", function () {
+
+    if (mySong2.paused) {
+
+        stopSong1();
+
+        mySong2.play().catch(function () {});
+        playButton2.textContent = "❚❚";
+
+        musicCover2.classList.add("playing");
+
+        createMusicHeart();
+        heartTimer2 = setInterval(createMusicHeart, 900);
+
+    } else {
+
+        stopSong2();
+
+    }
+
+});
+
+mySong2.addEventListener("loadedmetadata", function () {
+    duration2.textContent = formatTime(mySong2.duration);
+});
+
+mySong2.addEventListener("timeupdate", function () {
+
+    if (!mySong2.duration) return;
+
+    progressFill2.style.width =
+        (mySong2.currentTime / mySong2.duration) * 100 + "%";
+
+    currentTime2.textContent = formatTime(mySong2.currentTime);
+
+});
+
+mySong2.addEventListener("ended", function () {
+
+    stopSong2();
+
+    progressFill2.style.width = "0%";
+
+    currentTime2.textContent = "0:00";
+
+});
+
+
+/* =========================
+   GESER LAGU + TITIK PENANDA
+========================= */
+
+const musicSlides = document.getElementById("musicSlides");
+const slideEls = musicSlides.querySelectorAll(".music-slide");
+const songDots = document.querySelectorAll(".song-dot");
+
+let currentSlide = 0;
+
+// tinggi area geser mengikuti lagu yang sedang tampil
+function fitSlidesHeight() {
+    musicSlides.style.height = "auto";
+    const natural = slideEls[currentSlide].offsetHeight + 46;
+    musicSlides.style.height = natural + "px";
+}
+
+function updateSlide() {
+
+    const index = Math.round(
+        musicSlides.scrollLeft / slideEls[0].offsetWidth
+    );
+
+    if (index !== currentSlide) {
+
+        currentSlide = index;
+
+        songDots.forEach(function (dot, i) {
+            dot.classList.toggle("active", i === index);
         });
 
+        fitSlidesHeight();
 
-        mySong.addEventListener("ended", function () {
+    }
 
-            playButton.textContent = "▶";
+}
 
+musicSlides.addEventListener("scroll", updateSlide, { passive: true });
+
+songDots.forEach(function (dot, i) {
+
+    dot.addEventListener("click", function () {
+
+        musicSlides.scrollTo({
+            left: i * slideEls[0].offsetWidth,
+            behavior: "smooth"
         });
 
-    </script>
+    });
+
+});
+
+window.addEventListener("load", fitSlidesHeight);
+window.addEventListener("resize", fitSlidesHeight);
+fitSlidesHeight();
+
+</script>
+
+<div class="catch-win-overlay" id="catchWinOverlay">
+
+    <div class="catch-win-card">
+
+        <div class="win-heart">♡</div>
+
+        <p class="win-small">
+            YEAY, BERHASIL! 
+        </p>
+
+        <h3>
+            SEMUA HATI BERHASIL DI TANGKAP!
+        </h3>
+
+        <p>
+           aww ternyata kakak jago juga<br>
+            nangkep hatinya adek hehe ⁄⁠ ⁠⁄⁠>⁠⁄⁠ω⁠⁄⁠<⁠⁄⁠ ⁠⁄⁠
+        </p>
+
+        <button id="playAgainButton" type="button" onclick="restartHeartGame()">
+    main lagi ♡
+</button>
+
+    </div>
+
+</div>
+
 
 </body>
 </html>
