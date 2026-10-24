@@ -167,55 +167,6 @@ tinyGameItems.forEach(function(item) {
     });
 
 });
-<script>
-const tinyGameItems = document.querySelectorAll(".game-item");
-
-tinyGameItems.forEach(function(item) {
-
-    item.addEventListener("click", function() {
-
-        const emoji = item.textContent.trim();
-        const rect = item.getBoundingClientRect();
-
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-
-        for (let i = 0; i < 14; i++) {
-
-            const particle = document.createElement("span");
-
-            particle.className = "emoji-particle";
-            particle.textContent = emoji;
-
-            particle.style.left = centerX + "px";
-            particle.style.top = centerY + "px";
-
-            particle.style.setProperty(
-                "--move-x",
-                ((Math.random() - 0.5) * 200) + "px"
-            );
-
-            particle.style.setProperty(
-                "--move-y",
-                ((Math.random() - 0.5) * 200) + "px"
-            );
-
-            particle.style.setProperty(
-                "--rotate",
-                ((Math.random() - 0.5) * 360) + "deg"
-            );
-
-            document.body.appendChild(particle);
-
-            setTimeout(function() {
-                particle.remove();
-            }, 900);
-
-        }
-
-    });
-
-});
 
 </script>
 
